@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
     fontFamily: 'LolFont'
   },
 });
->>>>>>> 60f15a321303713fd53120052c001bb5d100511d
+
