@@ -10,6 +10,7 @@ interface Champion {
   blurb: string
 }
 const Home = () => {
+  
   const [championData, setChampionData] = useState<Champion[]>([]);
   const [searchText, setSearchText] = useState("");
 
