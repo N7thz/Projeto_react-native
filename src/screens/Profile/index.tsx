@@ -1,21 +1,21 @@
 import { Text, View, ImageBackground, Image, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 
-import backgroung from './src/assets/imgs/background-profile.png'
-import fotoPerfil from './src/assets/imgs/foto-perfil.jpeg'
+import  background  from '../../assets/imgs/background-profile.png'
+import  fotoPerfil  from '../../assets/imgs/foto-perfil.jpeg'
 
 import { useFonts } from 'expo-font'
 
-export default function App() {
+export function Profile() {
 
     const [fontsLoaded] = useFonts({
 
-        'LolFont': require('./src/assets/fonts/Spiegel_TT_Regular.ttf')
+        'LolFont': require('../../assets/fonts/Spiegel_TT_Regular.ttf')
     })
 
     return (
 
-        <ImageBackground source={backgroung} style={styles.background}>
+        <ImageBackground source={background} style={styles.background}>
             <View style={styles.iconBox}>
                 <Image source={fotoPerfil} style={styles.iconImage} />
                 <View style={styles.texts}>

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect} from 'react';
 import { FlatList, Text, View, TextInput } from "react-native";
 import { Personagens } from "../../components/Personagens";
-import { styles } from "./styles";
+import { styles } from "./styles"; 
+
 interface Champion {
   id: string;
   key: string;
@@ -9,7 +10,7 @@ interface Champion {
   title: string;
   blurb: string
 }
-const Home = () => {
+export function Home  () {
   
   const [championData, setChampionData] = useState<Champion[]>([]);
   const [searchText, setSearchText] = useState("");
@@ -68,4 +69,3 @@ const Home = () => {
   );
 };
 
-export default Home;
