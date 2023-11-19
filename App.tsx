@@ -12,11 +12,6 @@ import { TabNavigation } from './src/routes/Tab.routes';
 
 export default function App() {
 
-  const [ fontsLoaded ] = useFonts({
-
-    'LolFont': require('./src/assets/fonts/Spiegel_TT_Regular.ttf')
-})
-
   return (
        
       <Routes/>
