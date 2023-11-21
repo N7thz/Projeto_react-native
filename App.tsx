@@ -8,13 +8,15 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { Routes } from './src/routes'
 import { TabNavigation } from './src/routes/Tab.routes';
+import { LoginScreen } from './src/screens/Login';
+import { Champion } from './src/screens/Champion';
 
 
 export default function App() {
 
   return (
        
-      <Routes/>
+      <LoginScreen/>
       
     
 
