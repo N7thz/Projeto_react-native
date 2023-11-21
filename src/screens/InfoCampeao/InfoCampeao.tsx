@@ -4,6 +4,9 @@ import { styles } from "./istyles";
 import { Skins } from "../../components/Skins/Skins";
 import Modal from 'react-native-modal';
 import { Video } from 'expo-av'
+import { Dimensions } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
 
 
 interface Champion {
@@ -12,13 +15,52 @@ interface Champion {
   name: string;
   title: string;
   lore: string;
-  spells: [];
+  image:{
+    full:"string"
+  }
   skins: {
     id: string;
     num: number;
     name: string;
     chromas: boolean;
   }[];
+  spells: [
+    {
+      id: string;
+      name: string;
+      image: {
+        full: string;
+      };
+    },
+    {
+      id: string;
+      name: string;
+      image: {
+        full: string;
+      };
+    },
+    {
+      id: string;
+      name: string;
+      image: {
+        full: string;
+      };
+    },
+    {
+      id: string;
+      name: string;
+      image: {
+        full: string;
+      };
+    }
+  ];
+  passive: {
+    name: string;
+    description: string; // Corrigido para string
+    image: {
+      full: string;
+    };
+  };
 }
 
 const InfoCampeao = () => {
@@ -31,7 +73,7 @@ const InfoCampeao = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://ddragon.leagueoflegends.com/cdn/13.22.1/data/pt_BR/champion/Aatrox.json"
+          `https://ddragon.leagueoflegends.com/cdn/13.22.1/data/pt_BR/champion/Nasus.json`
         );
 
         if (!response.ok) {
@@ -39,7 +81,6 @@ const InfoCampeao = () => {
         }
 
         const data = await response.json();
-        // Use Object.values para obter os valores do objeto e pegar o primeiro (no caso, único) campeão
         const firstChampion = Object.values(data.data)[0] as Champion;
         setChampionInfo(firstChampion);
 
@@ -55,24 +96,36 @@ const InfoCampeao = () => {
     return <Text>Carregando dados...</Text>;
   }
 
-  const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg`
+  const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.id}_0.jpg`
 
-  const imagePassive = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/passive/Aatrox_Passive.png`
+  const imagePassive = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/passive/${championInfo.passive.image.full}`
 
-  const imageQ = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/AatroxQ.png`
+  const imageQ = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/${championInfo.spells[0].image.full}`
 
-  const imageW = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/AatroxW.png`
+  const imageW = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/${championInfo.spells[1].image.full}`
 
-  const imageE = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/AatroxE.png`
+  const imageE = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/${championInfo.spells[2].image.full}`
 
-  const imageR = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/AatroxR.png`
+  const imageR = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/${championInfo.spells[3].image.full}`
 
+  const KeyFormatada = championInfo.key.padStart(3, '0');
+
+  const VideoPassiva = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_P1.mp4`
+
+  const VideoQ = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_Q1.mp4`
+
+  const VideoW = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_W1.mp4`
+  
+  const VideoE = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_E1.mp4`
+  
+  const VideoR = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_R1.mp4`
+  
   const skinsArray = championInfo.skins.map(skin => skin.num);
 
 
   const imagePathArray = skinsArray.map((num, index) => ({
     id: index.toString(),
-    url: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_${num}.jpg?t=${Date.now()}`
+    url: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.id}_${num}.jpg?t=${Date.now()}`
   }));
 
   const toggleModal = (content: string | null) => {
@@ -92,9 +145,9 @@ const InfoCampeao = () => {
           <View style={styles.containerVideo}>
             <Video
               ref={videoRef}
-              style={styles.video}
-              source={{ uri: 'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_P1.mp4' }}
-              resizeMode="contan"
+              style={{ width: screenWidth, aspectRatio: 16 / 9 }}
+              source={{ uri: VideoPassiva }}
+              resizeMode={"contain"  as any}
               shouldPlay={true}
               isMuted={false}
               isLooping={true}
@@ -107,9 +160,9 @@ const InfoCampeao = () => {
           <View style={styles.containerVideo}>
             <Video
               ref={videoRef}
-              style={styles.video}
-              source={{ uri: 'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_Q1.mp4' }}
-              resizeMode={'center'}
+              style={{ width: screenWidth, aspectRatio: 16 / 9 }}
+              source={{ uri: VideoQ }}
+              resizeMode={'center' as any}
               shouldPlay={true}
               isMuted={false}
               isLooping={true}
@@ -120,9 +173,9 @@ const InfoCampeao = () => {
         return (<View style={styles.containerVideo}>
           <Video
             ref={videoRef}
-            style={styles.video}
-            source={{ uri: 'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_W1.mp4' }}
-         resizeMode= "contain"
+            style={{ width: screenWidth, aspectRatio: 16 / 9 }}
+            source={{ uri: VideoW }}
+            resizeMode={"contain" as any}
             shouldPlay={true}
             isMuted={false}
             isLooping={true}
@@ -133,10 +186,9 @@ const InfoCampeao = () => {
           <View style={styles.containerVideo}>
             <Video
               ref={videoRef}
-              style={styles.video}
-              source={{ uri: 'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_E1.mp4' }}
-              resizeMode={ResizeMode.CONTAIN}
-              // resizeMode= "contain"
+              style={{ width: screenWidth, aspectRatio: 16 / 9 }}
+              source={{ uri: VideoE }}
+              resizeMode={"contain" as any}
               shouldPlay={true}
               isMuted={false}
               isLooping={true}
@@ -148,10 +200,9 @@ const InfoCampeao = () => {
           <View style={styles.containerVideo}>
             <Video
               ref={videoRef}
-              style={styles.video}
-              source={{ uri: 'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_R1.mp4' }}
-              resizeMode={ResizeMode.CONTAIN}
-              // resizeMode= "contain"
+              style={{ width: screenWidth, aspectRatio: 16 / 9 }}
+              source={{ uri: VideoR }}
+              resizeMode={"contain" as any}
               shouldPlay={true}
               isMuted={false}
               isLooping={true}
@@ -170,7 +221,7 @@ const InfoCampeao = () => {
         source={{ uri: imageUrl }}
         style={styles.image}
       />
-      <Image source={require('../../assets/imgs/degrade.png')} style={styles.backgroundImage} />
+       <Image source={require('../../assets/imgs/degrade.png')} style={styles.backgroundImage} />
       <View style={styles.degrade}>
 
         <Text style={styles.subTitulo}>{championInfo.title}</Text>
@@ -242,7 +293,7 @@ const InfoCampeao = () => {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <Skins img={item} />
-            )}
+              )}
             horizontal
             showsHorizontalScrollIndicator={false}
 
@@ -255,6 +306,7 @@ const InfoCampeao = () => {
         {renderContent()}
       </Modal>
 
+             
     </View>
 
 

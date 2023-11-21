@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   image: {
     width: '100%',
     aspectRatio: 16 / 9,
+    
   },
   skins: {
     width: '90%',
@@ -32,7 +33,7 @@ export const styles = StyleSheet.create({
   },
   titulo: {
     color: '#fff',
-    fontSize: 60,
+    fontSize: 50,
     textAlign: 'center',
     textTransform: 'uppercase',
     fontFamily: 'LolFont-Bold',
@@ -62,24 +63,20 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#0d0d1c',
     width: '100%',
-    height: '100%'
+    height: '100%',
+    
   },
   containerVideo: {
-    // flex: 1,
+    position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
-    height: '40%'
+    objectFit: 'contain', 
+    overflow: 'hidden', 
+  
   },
   video: {
-    width: '40%',
-    height: '40%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // objectFit: 'contain',
-    // aspectRatio: 16 / 9,
-    // resizeMode: 'contain',
-    // alignSelf: 'center'
+    aspectRatio: 16 / 9,
+    position: 'relative',
   },
   containerLore: {
     margin: '5%',
@@ -137,6 +134,6 @@ export const styles = StyleSheet.create({
   modal: {
     margin: 0,
     justifyContent: 'flex-end',
-    height: '90%', // Defina a altura desejada para o modal
+    height: '90%',
   },
 })

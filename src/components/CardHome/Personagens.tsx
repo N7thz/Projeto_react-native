@@ -1,24 +1,38 @@
 import React from "react"
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, FlatList, Platform } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { styles } from './styles'
-import FastImage from 'react-native-fast-image';
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack';
+import  InfoCampeao  from '../../screens/InfoCampeao/InfoCampeao'
 
+type RootStackParamList = {
+  InfoCampeao: { championId: string };
+  // ... outros nomes de páginas
+};
 
+type InfoCampeaoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'InfoCampeao'>;
 
 export const Personagens = ({ champion }: any) => {
   const { id, key, name } = champion;
   const imageUrl = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/champion/${id}.png`;
 
+const navigation = useNavigation<InfoCampeaoScreenNavigationProp>();
+
+const handlePress = () => {
+  // Navegue para a outra página com o id como parâmetro
+  navigation.navigate('InfoCampeao', { championId: id });
+};
+
+
   return (
-    <View style={styles.container}>
-      <TouchableOpacity>
+    <TouchableOpacity onPress={handlePress}>
+      <View style={styles.container}>
         <Image
           source={{ uri: imageUrl }}
           style={styles.image}
         />
-      </TouchableOpacity>
-      <Text style={styles.titulo}>{name}</Text>
-
-    </View>
+        <Text style={styles.titulo}>{name}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
