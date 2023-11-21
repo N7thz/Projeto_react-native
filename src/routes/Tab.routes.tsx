@@ -5,9 +5,6 @@ import { Ionicons} from '@expo/vector-icons'
 import { Home } from '../screens/home';
 import { Profile } from '../screens/profile';
 
-// import { Home } from '../components/Home';
-// import { Perfil } from '../components/Perfil';
-
 const Tab = createBottomTabNavigator()
 
 export function TabNavigation() {
@@ -37,7 +34,7 @@ export function TabNavigation() {
                         if (focused) {
                             return <Ionicons name="person" size={size} color={color} />;
                         }
-                        return <Ionicons name="person-outline" size={size} color={color} />;
+                            return <Ionicons name="person-outline" size={size} color={color} />;
                     },
                 }}
             />
