@@ -3,6 +3,7 @@ import'react-native-gesture-handler'
 import React from 'react';
 import InfoCampeao from "./src/screens/InfoCampeao/InfoCampeao";
 import { useFonts } from 'expo-font';
+import Home from './src/screens/Home/Home';
 
 
 export default function App() {

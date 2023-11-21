@@ -4,10 +4,10 @@ import { TabNavigation } from './Tab.routes';
 
 export default function Routes() {
 
-    return(
+    return (
 
         <NavigationContainer>
-            <StackNavigator/>                      
+            <StackNavigator />
         </NavigationContainer>
-    );
-  }
+    );
+}

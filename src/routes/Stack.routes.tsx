@@ -1,11 +1,8 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
-
-import { LoginScreen } from "../screens/login";
-
-
+import { LoginScreen } from "../screens/Login";
 import { useEffect, useState } from "react";
 import Load from "../screens/load";
-import { Home } from "../screens/home";
+import Home from '../screens/Home/Home';
 import { TabNavigation } from "./Tab.routes";
 const Stack = createNativeStackNavigator<RootStack>();
 

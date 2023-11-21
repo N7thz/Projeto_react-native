@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp} from '@react-navigation/native-stack'
 
 
-import { Home } from '../home';
+import { Home } from '../Home';
 import { TabNavigation } from '../../routes/Tab.routes';
 import { RootStack } from '../../routes/Stack.routes';
 
