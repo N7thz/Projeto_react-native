@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, Text, View, TextInput } from "react-native";
-import { Personagens } from "../../components/Personagens";
+import { Personagens } from "../../components/CardHome/Personagens";
 import { styles } from "./styles";
 interface Champion {
   id: string;
