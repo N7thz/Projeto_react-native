@@ -1,7 +1,7 @@
-import { StyleSheet, Platform } from "react-native"
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  image: {
+image: {
     width: 165,
     height: 165,
     borderRadius: 10,
@@ -45,8 +45,13 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#09111A',
     marginTop: 15,
-    width: '100%',
+    flex: 1,
     alignItems: 'center'
+  }
+  ,
+  containerConteudo: {
+    paddingHorizontal: '5%',
+        marginBottom: 100
   },
   divisao: {
     backgroundColor: '#a0a2a3',
@@ -65,4 +70,4 @@ export const styles = StyleSheet.create({
     marginTop: '8%',
     marginBottom: '5%'
 }
-})
+});

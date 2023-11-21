@@ -57,12 +57,14 @@ const Home = () => {
         placeholderTextColor='#a0a2a3'
         onChangeText={(text) => setSearchText(text)}
       />
+      <View style={styles.containerConteudo}>
       <FlatList
         data={filteredChampions}
         numColumns={3}
         keyExtractor={(item) => item.id}
         renderItem={renderPersonagem}
       />
+      </View>
     </View>
   );
 };
