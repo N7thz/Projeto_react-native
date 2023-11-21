@@ -60,6 +60,7 @@ image: {
     marginTop: 15
   },
   containerText: {
+    padding: '5%',
     height: 40,
     width: '60%',
     paddingHorizontal: 15,

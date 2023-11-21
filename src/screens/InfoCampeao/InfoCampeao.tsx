@@ -1,11 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Text, View, Image, FlatList, TouchableOpacity, Button, Platform } from "react-native";
+import { Text, View, Image, FlatList, TouchableOpacity, Button, Platform, TouchableWithoutFeedback } from "react-native";
 import { styles } from "./istyles";
 import { Skins } from "../../components/Skins/Skins";
 import Modal from 'react-native-modal';
 import { Video } from 'expo-av'
 import { Dimensions } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStack } from "../../routes/Stack.routes"
+
 const screenWidth = Dimensions.get('window').width;
 
 
@@ -78,13 +82,13 @@ interface InfoCampeaoProps {
   };
 }
 
-type InfoCampeaoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'InfoCampeao'>;
 
 const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
   const [championInfo, setChampionInfo] = useState<Champion | null>(null);
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedContent, setSelectedContent] = useState<string | null>(null);;
   const videoRef = useRef<Video>(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -108,6 +112,8 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
 
     fetchData();
   }, []);
+
+
 
   if (!championInfo) {
     return <Text>Carregando dados...</Text>;
@@ -203,7 +209,7 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
             isLooping={true}
           />
           <Text style={styles.tituloSkills}>{championInfo.spells[1].name}</Text>
-            <Text style={styles.text}>{championInfo.spells[1].description}</Text>
+          <Text style={styles.text}>{championInfo.spells[1].description}</Text>
         </View>)
       case 'imagemE':
         return (
@@ -243,6 +249,8 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
     }
   };
 
+  const navigation = useNavigation<NativeStackNavigationProp<RootStack>>();
+
   return (
     <View style={styles.container}>
       <Image
@@ -250,6 +258,14 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
         style={styles.image}
       />
       <Image source={require('../../assets/imgs/degrade.png')} style={styles.backgroundImage} />
+
+      <TouchableOpacity style={styles.icon} onPress={()=> 
+        {
+          navigation.navigate('TabNavigation')
+          setChampionInfo(null);}}>
+        <AntDesign name="leftcircle" size={35} color="white" style={{ opacity: 0.3 }}/>
+      </TouchableOpacity>
+
       <View style={styles.degrade}>
 
         <Text style={styles.subTitulo}>{championInfo.title}</Text>
@@ -303,6 +319,7 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
           </TouchableOpacity>
 
           <TouchableOpacity
+            activeOpacity={0.5}
             style={styles.imageSkillsOp}
             onPress={() => toggleModal('imagemR')}
           >
@@ -330,11 +347,11 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
         </View>
       </View>
 
-      <Modal isVisible={isModalVisible} style={styles.modal}>
-        <TouchableOpacity onPress={() => { setModalVisible(false) }}>
+      <TouchableWithoutFeedback onPress={() => { setModalVisible(false) }}>
+        <Modal isVisible={isModalVisible} style={styles.modal}>
           {renderContent()}
-        </TouchableOpacity>
-      </Modal>
+        </Modal>
+      </TouchableWithoutFeedback>
 
     </View>
 

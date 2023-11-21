@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
   },
   ladoALado: {
     flexDirection: 'row',
-    marginVertical: '5%',
+    marginVertical: '2.5%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -88,10 +88,10 @@ export const styles = StyleSheet.create({
     position: 'relative',
   },
   containerLore: {
-    margin: '5%',
     width: '90%',
     borderWidth: 2,
     borderColor: '#3a3d3e',
+    alignSelf: 'center',
   },
   divisao: {
     backgroundColor: '#a0a2a3',
@@ -106,9 +106,7 @@ export const styles = StyleSheet.create({
     color: '#a0a2a3',
     backgroundColor: '#1e1f23',
     borderRadius: 50,
-    marginHorizontal: '5%',
-    marginTop: '8%',
-    marginBottom: '5%',
+    margin: '2.5%',
   },
   carouselImage: {
     width: 200,
@@ -141,8 +139,22 @@ export const styles = StyleSheet.create({
     tintColor: '#09111A'
   },
   modal: {
+    flex: 1,
     margin: 0,
     justifyContent: 'flex-end',
     height: '90%',
+  },
+  headerButton: {
+    marginLeft: 15,
+    padding: 10,
+  },
+  headerButtonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  icon: {
+    position: 'absolute',
+    top: 40, // Ajuste a posição superior conforme necessário
+    left: 20, // Ajuste a posição à esquerda conforme necessário
   },
 })

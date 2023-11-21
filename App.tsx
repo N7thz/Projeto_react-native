@@ -9,9 +9,9 @@ import Home from './src/screens/Home/Home';
 export default function App() {
   // Desestruture a tupla retornada por useFonts
   const [fontsLoaded, error] = useFonts({
-    'LolFont-Medium': require('../../mobile/Projeto_react-native/src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-MediumItalic.otf'),
-    'LolFont-Bold': require('../../mobile/Projeto_react-native/src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-HeavyItalic.otf'),
-    'LolFont-Text': require('../../mobile/Projeto_react-native/src/Fontes/Fonts_Package/Spiegel-OTF/Spiegel-Regular.otf'),
+    'LolFont-Medium': require('./src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-MediumItalic.otf'),
+    'LolFont-Bold': require('./src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-HeavyItalic.otf'),
+    'LolFont-Text': require('./src/Fontes/Fonts_Package/Spiegel-OTF/Spiegel-Regular.otf'),
   });
   
   if (error) {
@@ -20,7 +20,7 @@ export default function App() {
 
   return (          
     
-    <Routes/>                   
+    <Routes/>                
   
   ) 
 }

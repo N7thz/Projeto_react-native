@@ -5,11 +5,11 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp} from '@react-navigation/native-stack'
 
 
-import { Home } from '../Home';
+import  Home  from '../Home/Home';
 import { TabNavigation } from '../../routes/Tab.routes';
 import { RootStack } from '../../routes/Stack.routes';
 
-import  background  from '../../assets/imgs/background-profile.png'
+import  background  from '../../assets/imgs/background-inicio.png'
 
 export const LoginScreen = () => {
 

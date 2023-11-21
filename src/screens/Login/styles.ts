@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       paddingHorizontal: 20,
+      
     },
     input: {
       height: 40,
@@ -14,6 +15,7 @@ export const styles = StyleSheet.create({
       borderWidth: 1,
       marginBottom: 20,
       paddingHorizontal: 10,
+      backgroundColor: "#fff"
     },
     button: {
 

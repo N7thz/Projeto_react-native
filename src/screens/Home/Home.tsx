@@ -39,6 +39,7 @@ const Home = () => {
     fetchData();
   }, []); // O array de dependências vazio garante que useEffect é chamado apenas uma vez
 
+  
   const championArray = Object.values(championData);
 
   const filteredChampions = championArray.filter((champion: any) =>
