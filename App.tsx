@@ -18,7 +18,7 @@ export default function App() {
     console.error("Erro ao carregar fontes:", error);
   }
 
-  return (          
+  return  (          
     
     <Routes/>                
   
