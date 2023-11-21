@@ -10,10 +10,17 @@ type RootStackParamList = {
   // ... outros nomes de páginas
 };
 
+interface PersonagensProps {
+  champion: {
+    id: string;
+    name: string;
+  };
+}
+
 type InfoCampeaoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'InfoCampeao'>;
 
-export const Personagens = ({ champion }: any) => {
-  const { id, key, name } = champion;
+export const Personagens: React.FC<PersonagensProps> = ({ champion }) => {
+  const { id, name } = champion;
   const imageUrl = `https://ddragon.leagueoflegends.com/cdn/13.22.1/img/champion/${id}.png`;
 
 const navigation = useNavigation<InfoCampeaoScreenNavigationProp>();

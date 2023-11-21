@@ -5,7 +5,7 @@ import { Skins } from "../../components/Skins/Skins";
 import Modal from 'react-native-modal';
 import { Video } from 'expo-av'
 import { Dimensions } from 'react-native';
-
+import { StackNavigationProp } from '@react-navigation/stack';
 const screenWidth = Dimensions.get('window').width;
 
 
@@ -15,8 +15,8 @@ interface Champion {
   name: string;
   title: string;
   lore: string;
-  image:{
-    full:"string"
+  image: {
+    full: "string"
   }
   skins: {
     id: string;
@@ -31,6 +31,7 @@ interface Champion {
       image: {
         full: string;
       };
+      description: string
     },
     {
       id: string;
@@ -38,6 +39,7 @@ interface Champion {
       image: {
         full: string;
       };
+      description: string
     },
     {
       id: string;
@@ -45,6 +47,7 @@ interface Champion {
       image: {
         full: string;
       };
+      description: string
     },
     {
       id: string;
@@ -52,6 +55,7 @@ interface Champion {
       image: {
         full: string;
       };
+      description: string
     }
   ];
   passive: {
@@ -63,7 +67,20 @@ interface Champion {
   };
 }
 
-const InfoCampeao = () => {
+type RootStackParamList = {
+  InfoCampeao: { championId: string };
+};
+interface InfoCampeaoProps {
+  route: {
+    params: {
+      championId: string;
+    };
+  };
+}
+
+type InfoCampeaoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'InfoCampeao'>;
+
+const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
   const [championInfo, setChampionInfo] = useState<Champion | null>(null);
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedContent, setSelectedContent] = useState<string | null>(null);;
@@ -73,7 +90,7 @@ const InfoCampeao = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://ddragon.leagueoflegends.com/cdn/13.22.1/data/pt_BR/champion/Nasus.json`
+          `https://ddragon.leagueoflegends.com/cdn/13.22.1/data/pt_BR/champion/${route.params.championId}.json`
         );
 
         if (!response.ok) {
@@ -115,11 +132,11 @@ const InfoCampeao = () => {
   const VideoQ = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_Q1.mp4`
 
   const VideoW = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_W1.mp4`
-  
+
   const VideoE = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_E1.mp4`
-  
+
   const VideoR = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_R1.mp4`
-  
+
   const skinsArray = championInfo.skins.map(skin => skin.num);
 
 
@@ -135,6 +152,7 @@ const InfoCampeao = () => {
     // Pausa o vídeo ao fechar o modal
     if (!isModalVisible && videoRef.current) {
       videoRef.current.pauseAsync();
+      videoRef.current.unloadAsync()
     }
   };
 
@@ -147,11 +165,13 @@ const InfoCampeao = () => {
               ref={videoRef}
               style={{ width: screenWidth, aspectRatio: 16 / 9 }}
               source={{ uri: VideoPassiva }}
-              resizeMode={"contain"  as any}
+              resizeMode={"contain" as any}
               shouldPlay={true}
               isMuted={false}
               isLooping={true}
             />
+            <Text style={styles.tituloSkills}>{championInfo.passive.name}</Text>
+            <Text style={styles.text}>{championInfo.passive.description}</Text>
           </View>
         )
 
@@ -167,6 +187,8 @@ const InfoCampeao = () => {
               isMuted={false}
               isLooping={true}
             />
+            <Text style={styles.tituloSkills}>{championInfo.spells[0].name}</Text>
+            <Text style={styles.text}>{championInfo.spells[0].description}</Text>
           </View>
         )
       case 'imagemW':
@@ -180,6 +202,8 @@ const InfoCampeao = () => {
             isMuted={false}
             isLooping={true}
           />
+          <Text style={styles.tituloSkills}>{championInfo.spells[1].name}</Text>
+            <Text style={styles.text}>{championInfo.spells[1].description}</Text>
         </View>)
       case 'imagemE':
         return (
@@ -193,6 +217,8 @@ const InfoCampeao = () => {
               isMuted={false}
               isLooping={true}
             />
+            <Text style={styles.tituloSkills}>{championInfo.spells[2].name}</Text>
+            <Text style={styles.text}>{championInfo.spells[2].description}</Text>
           </View>
         )
       case 'imagemR':
@@ -207,6 +233,8 @@ const InfoCampeao = () => {
               isMuted={false}
               isLooping={true}
             />
+            <Text style={styles.tituloSkills}>{championInfo.spells[3].name}</Text>
+            <Text style={styles.text}>{championInfo.spells[3].description}</Text>
           </View>
         )
 
@@ -221,7 +249,7 @@ const InfoCampeao = () => {
         source={{ uri: imageUrl }}
         style={styles.image}
       />
-       <Image source={require('../../assets/imgs/degrade.png')} style={styles.backgroundImage} />
+      <Image source={require('../../assets/imgs/degrade.png')} style={styles.backgroundImage} />
       <View style={styles.degrade}>
 
         <Text style={styles.subTitulo}>{championInfo.title}</Text>
@@ -293,7 +321,7 @@ const InfoCampeao = () => {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <Skins img={item} />
-              )}
+            )}
             horizontal
             showsHorizontalScrollIndicator={false}
 
@@ -303,10 +331,11 @@ const InfoCampeao = () => {
       </View>
 
       <Modal isVisible={isModalVisible} style={styles.modal}>
-        {renderContent()}
+        <TouchableOpacity onPress={() => { setModalVisible(false) }}>
+          {renderContent()}
+        </TouchableOpacity>
       </Modal>
 
-             
     </View>
 
 

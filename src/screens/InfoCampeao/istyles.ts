@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     color: '#a0a2a3',
-    fontSize: 12,
+    fontSize: 16,
     textAlign: 'left',
     fontFamily: 'LolFont-Text',
     margin: '3%'
@@ -34,6 +34,14 @@ export const styles = StyleSheet.create({
   titulo: {
     color: '#fff',
     fontSize: 50,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    fontFamily: 'LolFont-Bold',
+    marginTop: -15
+  },
+  tituloSkills: {
+    color: '#fff',
+    fontSize: 20,
     textAlign: 'center',
     textTransform: 'uppercase',
     fontFamily: 'LolFont-Bold',
@@ -72,6 +80,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     objectFit: 'contain', 
     overflow: 'hidden', 
+    bottom: 200 
   
   },
   video: {
@@ -116,7 +125,7 @@ export const styles = StyleSheet.create({
   },
   containerConteudo: {
     paddingHorizontal: '5%',
-    marginBottom: 20,
+    backgroundColor: '#09111A',
     justifyContent: 'flex-start'
   },
   degrade: {
