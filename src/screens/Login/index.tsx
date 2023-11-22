@@ -1,49 +1,48 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet, Text, Image, ImageBackground} from 'react-native';
+import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp} from '@react-navigation/native-stack'
 
-export function LoginScreen() {
+
+import  Home  from '../Home/Home';
+import { TabNavigation } from '../../routes/Tab.routes';
+import { RootStack } from '../../routes/Stack.routes';
+
+import  background  from '../../assets/imgs/background-inicio.png'
+
+export const LoginScreen = () => {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    console.log('Email:', email);
-    console.log('Password:', password);
-  };
+  const navigation = useNavigation<NativeStackNavigationProp<RootStack>>()
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingHorizontal: 20,
-    },
-    input: {
-      height: 40,
-      width: '100%',
-      borderColor: 'gray',
-      borderWidth: 1,
-      marginBottom: 10,
-      paddingHorizontal: 10,
-    },
-  });
-
+ 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        keyboardType="email-address"
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Senha"
-        secureTextEntry
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-      />
-      <Button title="Login" onPress={handleLogin} />
-    </View>
-  );
+
+    <ImageBackground source={background} style={styles.backgroundImage}>
+      <View style={styles.container}>
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            keyboardType="email-address"
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Senha"
+            secureTextEntry
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+          />
+        <TouchableOpacity style={styles.button} activeOpacity={.7} onPress={()=> navigation.navigate('TabNavigation')}>            
+            <Text style={styles.textButton} >
+                Login
+            </Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
+  )
 }

@@ -1,8 +1,7 @@
-import { useState, useEffect} from 'react';
+import React, { useEffect, useState } from "react";
 import { FlatList, Text, View, TextInput } from "react-native";
-import { Personagens } from "../../components/Personagens";
-import { styles } from "./styles"; 
-
+import { Personagens } from "../../components/CardHome/Personagens";
+import { styles } from "./styles";
 interface Champion {
   id: string;
   key: string;
@@ -10,8 +9,7 @@ interface Champion {
   title: string;
   blurb: string
 }
-export function Home  () {
-  
+const Home = () => {
   const [championData, setChampionData] = useState<Champion[]>([]);
   const [searchText, setSearchText] = useState("");
 
@@ -41,6 +39,7 @@ export function Home  () {
     fetchData();
   }, []); // O array de dependências vazio garante que useEffect é chamado apenas uma vez
 
+  
   const championArray = Object.values(championData);
 
   const filteredChampions = championArray.filter((champion: any) =>
@@ -59,13 +58,16 @@ export function Home  () {
         placeholderTextColor='#a0a2a3'
         onChangeText={(text) => setSearchText(text)}
       />
+      <View style={styles.containerConteudo}>
       <FlatList
         data={filteredChampions}
         numColumns={3}
         keyExtractor={(item) => item.id}
         renderItem={renderPersonagem}
       />
+      </View>
     </View>
   );
 };
 
+export default Home;
