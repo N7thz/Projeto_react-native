@@ -1,0 +1,143 @@
+[
+    {
+        "blurb": "Um guerreiro tão destemido quanto irascível, o yordle Kled representa a bravata furiosa de Noxus. Ele é um ícone amado pelos soldados do império, rejeitado por seus oficiais e abominado pela nobreza. Muitos dizem que Kled lutou em cada batalha que as...",
+        "id": "Kled",
+        "image": {
+            "full": "Kled.png",
+            "group": "champion",
+            "h": 48,
+            "sprite": "champion2.png",
+            "w": 48,
+            "x": 144,
+            "y": 0
+        },
+        "info": {
+            "attack": 8,
+            "defense": 2,
+            "difficulty": 7,
+            "magic": 2
+        },
+        "key": "240",
+        "name": "Kled",
+        "partype": "Coragem",
+        "stats": {
+            "armor": 35,
+            "armorperlevel": 5.2,
+            "attackdamage": 65,
+            "attackdamageperlevel": 3.5,
+            "attackrange": 125,
+            "attackspeed": 0.625,
+            "attackspeedperlevel": 3.5,
+            "crit": 0,
+            "critperlevel": 0,
+            "hp": 410,
+            "hpperlevel": 84,
+            "hpregen": 6,
+            "hpregenperlevel": 0.75,
+            "movespeed": 345,
+            "mp": 100,
+            "mpperlevel": 0,
+            "mpregen": 0,
+            "mpregenperlevel": 0,
+            "spellblock": 28,
+            "spellblockperlevel": 2.05
+        },
+        "tags": [
+            "Fighter",
+            "Tank"
+        ],
+        "title": "o Cavaleiro Intratável",
+        "version": "13.22.1"
+    },
+    {
+        "blurb": "Morto e renascido duas vezes, 
+Mordekaiser é um cruel comandante de uma época perdida. Ele usa a arte da necromancia para aprisionar almas e torná-las submissas pela eternidade. Hoje em dia, poucos se lembram das primeiras conquistas ou conhecem a real...", "id": "Mordekaiser","image": {"full": "Mordekaiser.png","group": "champion","h": 48,"sprite": "champion2.png","w": 48,"x": 48,"y": 96
+    },
+    "info": {
+        "attack": 4,
+        "defense": 6,
+        "difficulty": 4,
+        "magic": 7
+    },
+    "key": "82",
+    "name": "Mordekaiser",
+    "partype": "Escudo",
+    "stats": {
+        "armor": 37,
+        "armorperlevel": 4.2,
+        "attackdamage": 61,
+        "attackdamageperlevel": 4,
+        "attackrange": 175,
+        "attackspeed": 0.625,
+        "attackspeedperlevel": 1,
+        "crit": 0,
+        "critperlevel": 0,
+        "hp": 645,
+        "hpperlevel": 104,
+        "hpregen": 5,
+        "hpregenperlevel": 0.75,
+        "movespeed": 335,
+        "mp": 100,
+        "mpperlevel": 0,
+        "mpregen": 0,
+        "mpregenperlevel": 0,
+        "spellblock": 32,
+        "spellblockperlevel": 2.05
+    },
+    "tags": [
+        "Fighter"
+    ],
+    "title": "o Revenã de Ferro",
+    "version": "13.22.1"
+},
+{
+    "blurb": "Líder de parte do próspero submundo do crime em Ionia, Sett deve todo o seu sucesso à guerra contra Noxus. Mesmo estreando como um simples desafiante nas arenas de combate em Navori, ele logo conquistou notoriedade com sua força bruta e capacidade de...",
+    "id": "Sett",
+    "image": {
+        "full": "Sett.png",
+        "group": "champion",
+        "h": 48,
+        "sprite": "champion3.png",
+        "w": 48,
+        "x": 192,
+        "y": 96
+    },
+    "info": {
+        "attack": 8,
+        "defense": 5,
+        "difficulty": 2,
+        "magic": 1
+    },
+    "key": "875",
+    "name": "Sett",
+    "partype": "Ousadia",
+    "stats": {
+        "armor": 33,
+        "armorperlevel": 5.2,
+        "attackdamage": 60,
+        "attackdamageperlevel": 4,
+        "attackrange": 125,
+        "attackspeed": 0.625,
+        "attackspeedperlevel": 1.75,
+        "crit": 0,
+        "critperlevel": 0,
+        "hp": 670,
+        "hpperlevel": 114,
+        "hpregen": 7,
+        "hpregenperlevel": 0.5,
+        "movespeed": 340,
+        "mp": 0,
+        "mpperlevel": 0,
+        "mpregen": 0,
+        "mpregenperlevel": 0,
+        "spellblock": 28,
+        "spellblockperlevel": 2.05
+    },
+    "tags": [
+        "Fighter",
+        "Tank"
+    ],
+    "title": "o Chefe",
+    "version": "13.22.1"
+}
+]

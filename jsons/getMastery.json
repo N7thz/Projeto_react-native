@@ -1,0 +1,38 @@
+[
+    {
+        "championId": 82,
+        "championLevel": 6,
+        "championPoints": 68632,
+        "championPointsSinceLastLevel": 47032,
+        "championPointsUntilNextLevel": 0,
+        "chestGranted": true,
+        "lastPlayTime": 1700462236000,
+        "puuid": "C2SvGETKE-LEfLELL8eB7NqM2oHMi05Did0boxx5QA969_Z6tBXTFgHZFa6VwVBWIYc89yqYDinCBQ",
+        "summonerId": "wSTk90E_YZEYudlKqsXUEZiIweEJ6Ye4rgpOjar7gyWmw17f4P_q-psgeA",
+        "tokensEarned": 0
+    },
+    {
+        "championId": 875,
+        "championLevel": 4,
+        "championPoints": 18373,
+        "championPointsSinceLastLevel": 5773,
+        "championPointsUntilNextLevel": 3227,
+        "chestGranted": true,
+        "lastPlayTime": 1700358960000,
+        "puuid": "C2SvGETKE-LEfLELL8eB7NqM2oHMi05Did0boxx5QA969_Z6tBXTFgHZFa6VwVBWIYc89yqYDinCBQ",
+        "summonerId": "wSTk90E_YZEYudlKqsXUEZiIweEJ6Ye4rgpOjar7gyWmw17f4P_q-psgeA",
+        "tokensEarned": 0
+    },
+    {
+        "championId": 240,
+        "championLevel": 3,
+        "championPoints": 6048,
+        "championPointsSinceLastLevel": 48,
+        "championPointsUntilNextLevel": 6552,
+        "chestGranted": true,
+        "lastPlayTime": 1699380547000,
+        "puuid": "C2SvGETKE-LEfLELL8eB7NqM2oHMi05Did0boxx5QA969_Z6tBXTFgHZFa6VwVBWIYc89yqYDinCBQ",
+        "summonerId": "wSTk90E_YZEYudlKqsXUEZiIweEJ6Ye4rgpOjar7gyWmw17f4P_q-psgeA",
+        "tokensEarned": 0
+    }
+]
