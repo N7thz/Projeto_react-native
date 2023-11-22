@@ -2,43 +2,104 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 
-    container: {
+    background: {
 
-        flex: 1,
-        backgroundColor: '#09111A',
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        backgroundColor: 'blue'
     },
 
-    image: {
+    info: {
 
-        width: 100,
-        height: 100,
-        borderRadius: 12,
+        width: '100%',
+        padding: 10,
+        backgroundColor: '#00141c',
+        marginTop: 50,
+        borderTopColor: '#3b3855',
+        borderWidth: 2
     },
 
-    title: {
+    principal: {
 
-        color: '#fff',
-        fontSize: 28,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 20,
+        marginLeft: 20,
+        marginTop: 20,
     },
 
     box: {
 
-        flex: 2,
-        width: '100%',
+        width: '74%',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#00141c',
+        marginLeft: 52,
     },
 
-    Item: {
+    playerStatus: {
 
-        backgroundColor: 'blue',
+        width: '100%',
+        alignItems: 'center',
+        marginLeft: -40,
     },
 
-    champion: {
+    circle: {
 
-        width: '90%',
+        alignItems: 'center',
+        justifyContent: 'center',
         margin: 10,
-        padding: 10,
+        width: 220,
+        height: 230,
+        borderRadius: 999,
+    },
+
+    levelBox: {
+
+        backgroundColor: '#000',
+        width: 60,
+        height: 25,
+        borderRadius: 12,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 3,
+        borderColor: '#C09D53'
+    },
+
+    level: {
+        color: '#fff'
+    },
+
+    list: {
+
+        width: '100%',
+        alignItems: 'center'
+    },
+
+    image: {
+
+        width: 200,
+        height: 200,
+        borderRadius: 999,
+    },
+
+    title: {
+
+        fontSize: 32,
+        textAlign: 'center',
+        color: '#fff',
+        fontFamily: 'LolFont-Medium'
+    },
+
+    subtitle: {
+
+        fontSize: 24,
+        color: '#fff',
+        marginVertical: 12,
+        fontFamily: 'LolFont-Text'
     },
 
     text: {
@@ -46,10 +107,29 @@ export const styles = StyleSheet.create({
         color: '#fff',
     },
 
-    info: {
+    footer: {
 
-        flex: 1,
+        backgroundColor: '#fff',
         width: '100%',
         padding: 10,
-    }
+        justifyContent: 'center'
+    },
+
+    result: {
+
+        color: '#fff',
+        fontSize: 32,
+        textAlign: 'center',
+        fontFamily: 'LolFont-Bold',
+        marginBottom: 12
+    },
+
+    resultText: {
+
+        color: '#fff',
+        fontSize: 18,
+        fontFamily: 'LolFont-Text',
+        padding: 4
+    },
+
 })

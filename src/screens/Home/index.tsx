@@ -1,8 +1,8 @@
 import { useState, useEffect} from 'react';
 import { FlatList, Text, View, TextInput } from "react-native";
 import { Personagens } from "../../components/Personagens";
-import { styles } from "./styles"; 
 
+import { styles } from './styles';
 interface Champion {
   id: string;
   key: string;
@@ -48,8 +48,6 @@ export function Home  () {
   );
 
   const renderPersonagem = ({ item }: any) => <Personagens champion={item} />;
-
-
 
   return (
     <View style={styles.container}>
