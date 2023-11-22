@@ -11,8 +11,8 @@ import { styles } from './styles'
 import { ChampionItem } from '../../components/ChampionItem'
 import { ChampionInfo } from '../../components/ChampionInfo'
 
-import Background from '../../assets/imgs/404.jpg'
-import Faixa from '../../assets/imgs/degrade.png'
+import Background from '../../assets/imgs/background-profile.jpg'
+import Faixa from '../../assets/imgs/faixa-lol.png'
 
 // import { ApplicationContext } from '../../Context/ApplicationContext'
 
