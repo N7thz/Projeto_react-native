@@ -1,5 +1,5 @@
 import Routes from './src/routes';
-import'react-native-gesture-handler'
+import 'react-native-gesture-handler'
 import React from 'react';
 import InfoCampeao from "./src/screens/InfoCampeao/InfoCampeao";
 import { useFonts } from 'expo-font';
@@ -9,6 +9,7 @@ import { ApplicationProvider } from './src/context/context';
 
 
 export default function App() {
+  
   // Desestruture a tupla retornada por useFonts
   const [fontsLoaded, error] = useFonts({
     'LolFont-Medium': require('./src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-MediumItalic.otf'),
@@ -24,10 +25,10 @@ export default function App() {
   return  (          
     
     <ApplicationProvider>
-        <Routes/> 
+      <Routes />
     </ApplicationProvider>
-                      
-  
-  ) 
+
+
+  )
 }
 
