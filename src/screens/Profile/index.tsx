@@ -11,6 +11,8 @@ import { styles } from './styles'
 import { ChampionItem } from '../../components/ChampionItem'
 import { ChampionInfo } from '../../components/ChampionInfo'
 
+import { getUserData } from '../../service/api'
+
 import Background from '../../assets/imgs/background-profile.jpg'
 import Faixa from '../../assets/imgs/faixa-lol.png'
 
@@ -118,18 +120,22 @@ export const Profile = () => {
     }
 
     const filterChampions = async (topChampions: any[]) => {
-
         try {
 
             const response: any = (await axios.get(`https://ddragon.leagueoflegends.com/cdn/13.22.1/data/pt_BR/champion.json`)).data.data
 
             const responseArray: any[] = Object.values(response)
+
             const arrayFilter = responseArray.filter((champion) => {
 
-                return topChampions.some(topchampion => topchampion.championId.toString() === champion.key)
+                const arrayTest = topChampions.some(topchampion => topchampion.championId.toString() === champion.key)
+
+                return arrayTest
             })
 
-            setTopChampionsObject(arrayFilter)
+            setTopChampionsObject(arrayFilter.sort())
+
+            console.log(topChampionsObject);
 
             getHistoryMatch(puuId, key)
 
@@ -179,8 +185,6 @@ export const Profile = () => {
                 setDeaths(participante.deaths)
                 setKda(participante.challenges.kda)
                 setKills(participante.kills)
-
-                console.log(participante);
             }
         })
     }
@@ -229,13 +233,13 @@ export const Profile = () => {
                             <Text style={styles.title}>
                                 Última partida
                             </Text>
-                            
+
                             {
                                 win ?
-                                    <Text style={[styles.result, {color: 'blue'}]}>
+                                    <Text style={[styles.result, { color: 'blue' }]}>
                                         - Vitória -
                                     </Text> :
-                                    <Text style={[styles.result, {color: 'red'}]}>
+                                    <Text style={[styles.result, { color: 'red' }]}>
                                         - Derrota -
                                     </Text>
                             }
