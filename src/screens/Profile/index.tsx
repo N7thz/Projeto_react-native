@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext} from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Text, View, Image, FlatList, ScrollView } from 'react-native'
 import axios from 'axios'
+import { ApplicationContext } from '../../context/context'
 
 import { styles } from './styles'
 
@@ -23,6 +24,8 @@ export const Profile = () => {
     const [kda, setKda] = useState<number>(0)
     const [assists, setAssists] = useState<number>(0)
     const [win, setWin] = useState<boolean>(false)
+
+    const {email} = useContext (ApplicationContext)
 
     const key: string = 'RGAPI-363870e5-f8f4-4088-b44f-90384f7bac3b'
     const champion: string = 'Aatrox'
@@ -194,7 +197,7 @@ export const Profile = () => {
                 <Image source={{ uri: image }} style={styles.image} />
                 <Text style={styles.title}>{nick}</Text>
                 <Text style={[styles.title, { fontSize: 18 }]}>Level: {level}</Text>
-                <Text style={styles.title}>Principais Campeões</Text>
+                <Text style={styles.title}>{email}</Text>
 
                 <View style={{ width: '100%' }}>
 
