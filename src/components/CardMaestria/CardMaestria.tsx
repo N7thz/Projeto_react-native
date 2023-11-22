@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react";
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { styles } from './styles'
 import { useNavigation } from '@react-navigation/native'
@@ -13,9 +13,45 @@ import maestria6 from "../../assets/imgs/maestria6.png"
 import maestria7 from "../../assets/imgs/maestria7.png"
 import fundoMaestria from "../../assets/imgs/fundoMaestria.png"
 
+interface Champion {
+    id: string;
+    key: string;
+    name: string;
+    title: string;
+    blurb: string
+  }
 
 export const CardMaestria = ({ campeao }: any) => {
     const { pontoscampeão, campeãoLevel, campeãoId } = campeao;
+    const [championData, setChampionData] = useState<Champion[]>([]);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+          try {
+            // Faça a requisição para a API
+            const response = await fetch(
+              "https://ddragon.leagueoflegends.com/cdn/13.22.1/data/pt_BR/champion.json"
+            );
+            // Verifique se a resposta foi bem-sucedida (código de status 200)
+            if (!response.ok) {
+              throw new Error("Erro ao carregar dados da API");
+            }
+            // Parseie a resposta para JSON
+            const data = await response.json();
+            // Defina os dados no estado
+            setChampionData(data.data); // Use data.data, pois os campeões estão aninhados sob a chave "data"
+          } catch (error) {
+            console.error("Erro na requisição:", error);
+          }
+        };
+    
+        // Chame a função fetchData quando o componente montar
+        fetchData();
+      }, []);
+
+      const campeaoCorrespondente = championData.find(champion => champion.key === campeãoId);
+
 
     const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Mordekaiser_0.jpg`;
 
