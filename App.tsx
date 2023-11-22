@@ -14,10 +14,7 @@ export default function App() {
     'LolFont-Medium': require('./src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-MediumItalic.otf'),
     'LolFont-Bold': require('./src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-HeavyItalic.otf'),
     'LolFont-Text': require('./src/Fontes/Fonts_Package/Spiegel-OTF/Spiegel-Regular.otf'),
-<<<<<<< HEAD
-=======
     
->>>>>>> andre/feature/context/add
   });
   
   if (error) {
@@ -26,14 +23,10 @@ export default function App() {
 
   return  (          
     
-<<<<<<< HEAD
-    <Routes/>                
-=======
     <ApplicationProvider>
         <Routes/> 
     </ApplicationProvider>
                       
->>>>>>> andre/feature/context/add
   
   ) 
 }
