@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, ImageBackground, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, ImageBackground, TouchableOpacity, Alert } from 'react-native'
 
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp} from '@react-navigation/native-stack'
@@ -22,7 +22,7 @@ export const LoginScreen = () => {
 
   const Logar = async () => {
 
-    const response = await getUser(email, password)
+    const response = await getUser( email, password )
 
     if (response.data.length == 1) {
 
@@ -34,7 +34,6 @@ export const LoginScreen = () => {
       setEmail('')
       setPassword('')
     }
-
   }
 
   return (

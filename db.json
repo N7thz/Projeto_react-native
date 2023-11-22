@@ -1,7 +1,6 @@
 {
   "users": [
     {
-<<<<<<< HEAD
       "email": "rorivaldo@email.com",
       "senha": "123456",
       "id": 1
@@ -10,39 +9,6 @@
       "email": "guri@email.com",
       "senha": "1234",
       "id": 2
-=======
-      "nome": "Andre Maia",
-      "email": "andre@gmail.com",
-      "senha": "123456", 
-      "dadosLol": [
-        {
-          "id": "Gp4y6wK_ilLptvbLxbQYAmdq-cgOLK7jBVw_pNwIYrX7PA",
-          "accountId": "cOtO_FRQxoW77sglgOiH4dMJjMYB0iRTGWP-C5l9Y7EG",
-          "puuid": "xDQb8I4IuZKSyNKW8cz2F6zVZJcYN7NSzKe3GmBVKa21-cULS9vQEO9UAsvDIRp-j212ZRF8DLDAOg",
-          "name": "Vl44D",
-          "profileIconId": 4022,
-          "revisionDate": 1700461328000,
-          "summonerLevel": 167
-      }  
-      ]            
-    },
-    {
-      "nome": "Leonardo Lucas",
-      "email": "leonardo@gmail.com",
-      "senha": "123456", 
-      "dadosLol": [
-        {
-        "id": "LzNwwCoroCkToY0Ss2tfP6h833LW4GkaI4sJ1AxiSoJFP2sbETZK72pATg",
-        "accountId": "nRoYfG2PZQqVQHWhPeBVczNMQm2DDgmtJ1SnuigfCFXvO8vJI8-sSofc",
-        "puuid": "qKj-X3Z1Gt-y9dm3MYm21LtnQfS_aKie6DdD1ucjUGa7Kp59BSpt35NFxfSHBhxc0BgUGNsOSseOgw",
-        "name": "Vulgo Nham Nham",
-        "profileIconId": 6340,
-        "revisionDate": 1700587847472,
-        "summonerLevel": 34 
-        }
-      ]  
-              
->>>>>>> andre/feature/context/add
     }
   ]
 }
