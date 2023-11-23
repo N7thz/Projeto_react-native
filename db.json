@@ -9,6 +9,31 @@
       "email": "guri@email.com",
       "senha": "1234",
       "id": 2
+    },
+    {
+      "email": "guri@email.com",
+      "password": "1234",
+      "id": 3
+    },
+    {
+      "email": "teste@gamil.com",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "email": "abacaxi",
+      "password": "flamengo",
+      "id": 5
+    },
+    {
+      "email": "teste1'",
+      "password": "123faffa",
+      "id": 6
+    },
+    {
+      "email": "teste2",
+      "password": "selçkfaskçflskeaf",
+      "id": 7
     }
   ]
 }

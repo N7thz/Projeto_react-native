@@ -6,7 +6,6 @@ import { styles } from './styles'
 export const ChampionItem = ({ item }: any) => {
 
     const image: any = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item.name}_0.jpg`
-    // const image: any = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${item.name}_0.jpg`
 
     return (
 

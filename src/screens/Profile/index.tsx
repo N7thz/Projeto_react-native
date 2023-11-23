@@ -12,8 +12,6 @@ import { styles } from './styles'
 import { ChampionItem } from '../../components/ChampionItem'
 import { ChampionInfo } from '../../components/ChampionInfo'
 
-import { getUserData } from '../../service/api'
-
 import Background from '../../assets/imgs/background-profile.jpg'
 import Faixa from '../../assets/imgs/faixa-lol.png'
 
@@ -93,7 +91,7 @@ export const Profile = () => {
                 setLevel(responseData.summonerLevel)
                 setPuuId(responseData.puuid)
                 setIcon(responseData.profileIconId)
-
+                
                 getMastery(puuId, key)
             })
             .catch((error) => {
@@ -108,7 +106,7 @@ export const Profile = () => {
             .then((response) => {
 
                 const arrayResponse = Object.values(response.data)
-
+                
                 setTopChampions([arrayResponse[0], arrayResponse[1], arrayResponse[2]])
 
                 const topChampions: any[] = [arrayResponse[0], arrayResponse[1], arrayResponse[2]]
@@ -118,7 +116,7 @@ export const Profile = () => {
             .catch((error) => {
                 console.error('Erro ao obter maestria:', error.message)
             })
-    }
+    }   
 
     const filterChampions = async (topChampions: any[]) => {
         try {
@@ -134,9 +132,7 @@ export const Profile = () => {
                 return arrayTest
             })
 
-            setTopChampionsObject(arrayFilter.sort())
-
-            console.log(topChampionsObject);
+            setTopChampionsObject(arrayFilter)
 
             getHistoryMatch(puuId, key)
 
@@ -221,12 +217,6 @@ export const Profile = () => {
                                 renderItem={({ item }: { item: TopChampionsObject }) => (<ChampionItem item={item} />)}
                                 keyExtractor={(item) => item.key}
                             />
-                            {/* <FlatList
-                                scrollEnabled={false}
-                                data={topChampions}
-                                renderItem={({ item }: { item: TopChampionsObject }) => (<ChampionInfo item={item} />)}
-                                keyExtractor={(item) => item.key}
-                            /> */}
                         </View>
 
                         <View style={styles.info}>
