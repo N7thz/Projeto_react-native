@@ -1,35 +1,28 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Text, View, Image, FlatList, ScrollView, ImageBackground } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
-
-import { LinearGradient } from 'expo-linear-gradient'
 
 import axios from 'axios'
+
+import { StatusBar } from 'expo-status-bar'
+import { LinearGradient } from 'expo-linear-gradient'
+
 import { ApplicationContext } from '../../context/context'
 
-import { styles } from './styles'
-
-import { ChampionItem } from '../../components/ChampionItem'
-import { ChampionInfo } from '../../components/ChampionInfo'
-
-import { getUserData } from '../../service/api'
+import { CardMaestria } from '../../components/CardMaestria/CardMaestria'
 
 import Background from '../../assets/imgs/background-profile.jpg'
 import Faixa from '../../assets/imgs/faixa-lol.png'
-import { CardMaestria } from '../../components/CardMaestria/CardMaestria'
 
-// import { ApplicationContext } from '../../Context/ApplicationContext'
+import { styles } from './styles'
 
 export const Profile = () => {
 
-    const [nick, setNick] = useState<string>('')
+    const [nickName, setNick] = useState<string>('')
     const [level, setLevel] = useState<string>('')
     const [puuId, setPuuId] = useState<string>('')
     const [icon, setIcon] = useState<number>(0)
     const [topChampions, setTopChampions] = useState<any[]>([])
     const [topChampionsObject, setTopChampionsObject] = useState<any[]>([])
-    const [history, setHistory] = useState<string>()
-    const [partidas, setPartidas] = useState<any[]>()
     const [gameMode, setGameMode] = useState<string>()
     const [participantes, setParticipantes] = useState<any[]>([])
     const [player, setPlayer] = useState<Player>()
@@ -40,13 +33,15 @@ export const Profile = () => {
     const [assists, setAssists] = useState<number>(0)
     const [win, setWin] = useState<boolean>(false)
 
-    const key: string = 'RGAPI-d7260307-05a9-4be3-98e8-156b7e68075e'
-    const nickName: string = 'Xeraf'
+    const { nick } = useContext(ApplicationContext)
+
     const image: any = `https://ddragon.leagueoflegends.com/cdn/13.23.1/img/profileicon/${icon}.png`
+
+    const { key } = useContext(ApplicationContext)
 
     useEffect(() => {
 
-        getUser(nickName, key)
+        getUser( nick, key)
     }, [])
 
     interface Player {
@@ -56,29 +51,6 @@ export const Profile = () => {
         challenges: {
             kda: any
         }
-    }
-
-    interface TopChampionsObject {
-        key: string
-    }
-
-    interface RootObject {
-
-        deathsByEnemyChamps: number
-        kda: number
-        killAfterHiddenWithAlly: number
-        killingSprees: number
-        killsNearEnemyTurret: number
-        killsOnRecentlyHealedByAramPack: number
-        killsUnderOwnTurret: number
-        knockEnemyIntoTeamAndKill: number
-        multikills: number
-        outnumberedKills: number
-        pickKillWithAlly: number
-        skillshotsDodged: number
-        skillshotsHit: number
-        snowballsHit: number
-        soloKills: number
     }
 
     const getUser = (nickName: string, key: string) => {
@@ -96,6 +68,7 @@ export const Profile = () => {
                 setIcon(responseData.profileIconId)
 
                 getMastery(puuId, key)
+                getHistoryMatch(puuId)
             })
             .catch((error) => {
                 console.error('Erro ao obter usuário:', error.message)
@@ -136,9 +109,6 @@ export const Profile = () => {
             })
 
             setTopChampionsObject(arrayFilter.sort())
-
-            getHistoryMatch(puuId)
-
         } catch (error) {
             console.error('Erro ao filtrar champions')
         }
@@ -167,6 +137,9 @@ export const Profile = () => {
 
                 const partidaData = infoPartida.data.info
 
+                console.log(partidaData);
+                
+
                 setParticipantes(partidaData.participants)
                 setDuration(partidaData.gameDuration)
                 setGameMode(partidaData.gameMode)
@@ -187,7 +160,7 @@ export const Profile = () => {
 
             participantes.map((participante) => {
 
-                if (participante.summonerName.toUpperCase() === nickName.toUpperCase()) {
+                if (participante.summonerName.toUpperCase() === nick.toUpperCase()) {
 
                     setPlayer(participante)
                     setAssists(participante.assists)
@@ -220,7 +193,7 @@ export const Profile = () => {
                                         <Text style={styles.level}>{level}</Text>
                                     </View>
                                 </LinearGradient>
-                                <Text style={styles.title}>{nick}</Text>
+                                <Text style={styles.title}>{nickName}</Text>
                             </View>
                         </ImageBackground>
                         <View style={styles.box}>
