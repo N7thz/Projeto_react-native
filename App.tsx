@@ -7,6 +7,7 @@ import Home from './src/screens/Home/Home';
 import { CardMaestria } from './src/components/CardMaestria/CardMaestria';
 import { View, FlatList } from 'react-native';
 import { styles } from './src/components/CardMaestria/styles'
+import { NavigationContainer } from '@react-navigation/native';
 
 
 export default function App() {
@@ -60,16 +61,13 @@ export default function App() {
     }
 
     return (
+        <NavigationContainer>
         <View style={{flexDirection: 'row'}}>
 
             {maestria.map((item) => (
                 <CardMaestria key={item.puuid} campeao={item} />
             ))}
         </View>
-
-
-
-
-
+        </NavigationContainer>
     )
 }
