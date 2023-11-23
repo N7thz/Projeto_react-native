@@ -29,28 +29,28 @@ interface Champion {
 interface Props {
     campeao: {
     puuid: string;
-    campeãoId: number;
-    campeãoLevel: number;
-    pontoscampeão: number;
-    últimoPlayTime: number;
+    championId: number;
+    championLevel: number;
+    championPoints: number;
+    lastPlayTime: number;
     championPointsSinceLastLevel: number;
     championPointsUntilNextLevel: number;
-    peitoconcedido: boolean;
-    tokensganhos: number;
+    chestGranted: boolean;
+    tokensEarned: number;
     summonerId: string;
     }
   }
 
   export const CardMaestria: React.FC<Props> = ({ campeao }: Props) => {
       const { puuid,
-        campeãoId,
-        campeãoLevel,
-        pontoscampeão,
-        últimoPlayTime,
+        championId,
+        championLevel,
+        championPoints,
+        lastPlayTime,
         championPointsSinceLastLevel,
         championPointsUntilNextLevel,
-        peitoconcedido,
-        tokensganhos,
+        chestGranted,
+        tokensEarned,
         summonerId, } = campeao;
         const [championData, setChampionData] = useState<Champion[]>([]);
         
@@ -77,7 +77,7 @@ interface Props {
             }, []);
             
             
-            const campeaoCorrespondente = championData.find(champion => parseInt(champion.key) == campeãoId);
+            const campeaoCorrespondente = championData.find(champion => parseInt(champion.key) == championId);
             
             const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${campeaoCorrespondente?.id}_0.jpg`;
             
@@ -95,7 +95,7 @@ interface Props {
                 
     let maestriaImage;
 
-    switch (campeãoLevel) {
+    switch (championLevel) {
         case 1:
             maestriaImage = maestria1;
             break;
@@ -123,7 +123,6 @@ interface Props {
         <View style={styles.container}>
             <View>
                 <TouchableOpacity  onPress={handlePress}>
-                    {/* onPress={handlePress} */}
                     <Image
                         source={{ uri: imageUrl }}
                         style={styles.image}
@@ -133,7 +132,7 @@ interface Props {
                     <Image source={fundoMaestria} style={styles.fundoMaestria} />
                     <View style={styles.ladoALado}>
                         <Image source={maestriaImage} style={styles.maestria0} />
-                        <Text style={styles.textClaro}>{pontoscampeão}</Text>
+                        <Text style={styles.textClaro}>{championPoints}</Text>
                     </View>
                 </View>
             </View>

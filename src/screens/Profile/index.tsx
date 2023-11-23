@@ -16,6 +16,7 @@ import { getUserData } from '../../service/api'
 
 import Background from '../../assets/imgs/background-profile.jpg'
 import Faixa from '../../assets/imgs/faixa-lol.png'
+import { CardMaestria } from '../../components/CardMaestria/CardMaestria'
 
 // import { ApplicationContext } from '../../Context/ApplicationContext'
 
@@ -215,12 +216,18 @@ export const Profile = () => {
                         <View style={styles.box}>
 
                             <Text style={styles.subtitle}>Principais Campeões</Text>
-                            <FlatList
+                            {/* <FlatList
                                 scrollEnabled={false}
-                                data={topChampionsObject}
-                                renderItem={({ item }: { item: TopChampionsObject }) => (<ChampionItem item={item} />)}
+                                data={topChampions} 
+                                renderItem={({ item }: { item: TopChampionsObject }) => (<CardMaestria campeao={item} />)}
                                 keyExtractor={(item) => item.key}
-                            />
+                            /> */}
+                            <View style={{ flexDirection: 'row' }}>
+
+                                {topChampions.map((item) => (
+                                    <CardMaestria key={item.puuid} campeao={item} />
+                                ))}
+                            </View>
                             {/* <FlatList
                                 scrollEnabled={false}
                                 data={topChampions}
