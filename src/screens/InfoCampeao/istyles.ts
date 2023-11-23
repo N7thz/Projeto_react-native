@@ -154,7 +154,7 @@ export const styles = StyleSheet.create({
   },
   icon: {
     position: 'absolute',
-    top: 40, // Ajuste a posição superior conforme necessário
-    left: 20, // Ajuste a posição à esquerda conforme necessário
+    top: 40,
+    left: 20, 
   },
 })

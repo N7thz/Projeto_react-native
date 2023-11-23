@@ -44,7 +44,6 @@ image: {
   },
   container: {
     backgroundColor: '#09111A',
-    marginTop: 15,
     flex: 1,
     alignItems: 'center'
   }

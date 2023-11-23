@@ -74,7 +74,7 @@ interface Champion {
 type RootStackParamList = {
   InfoCampeao: { championId: string };
 };
-interface InfoCampeaoProps {
+export interface InfoCampeaoProps {
   route: {
     params: {
       championId: string;
