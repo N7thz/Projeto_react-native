@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     container: {
-        height: 400,
+        height: 425,
         width: 320,
         backgroundColor: 'rgba(255,255,255,0.7);',
         borderRadius: 15,
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
         color: '#404040',
         backgroundColor: '#D9D9D9',
         fontSize: 16,
-        marginTop: 30,
+        marginTop: 15,
         padding: 10,
         borderRadius: 3,
         marginBottom: 1,
