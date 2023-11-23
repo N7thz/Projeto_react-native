@@ -20,7 +20,7 @@ export const LoginScreen = () => {
 
   const navigation = useNavigation<NativeStackNavigationProp<RootStack>>()
 
-  const Logar = async () => {
+  const Logar = async ( ) => {
 
     const response = await getUser( email, password )
 

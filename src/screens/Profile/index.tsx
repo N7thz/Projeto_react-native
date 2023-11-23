@@ -40,7 +40,7 @@ export const Profile = () => {
     const [win, setWin] = useState<boolean>(false)
 
     const key: string = 'RGAPI-d7260307-05a9-4be3-98e8-156b7e68075e'
-    const nickName: string = 'Xeraf'
+    const nickName: string = 'Vl44D'
     const image: any = `https://ddragon.leagueoflegends.com/cdn/13.23.1/img/profileicon/${icon}.png`
 
     useEffect(() => {
