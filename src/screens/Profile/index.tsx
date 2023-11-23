@@ -15,6 +15,7 @@ import Faixa from '../../assets/imgs/faixa-lol.png'
 
 import { styles } from './styles'
 
+
 export const Profile = () => {
 
     const [nickName, setNick] = useState<string>('')
@@ -41,7 +42,7 @@ export const Profile = () => {
 
     useEffect(() => {
 
-        getUser( nick, key)
+        getUser(nick, key)
     }, [])
 
     interface Player {
@@ -138,7 +139,7 @@ export const Profile = () => {
                 const partidaData = infoPartida.data.info
 
                 console.log(partidaData);
-                
+
 
                 setParticipantes(partidaData.participants)
                 setDuration(partidaData.gameDuration)
@@ -216,17 +217,13 @@ export const Profile = () => {
                             <Text style={styles.title}>
                                 Última partida
                             </Text>
-
-                            {
-                                win ?
-                                    <Text style={[styles.result, { color: 'blue' }]}>
-                                        - Vitória -
-                                    </Text> :
-                                    <Text style={[styles.result, { color: 'red' }]}>
-                                        - Derrota -
-                                    </Text>
-                            }
-
+                            <View style={styles.imageContainer}>
+                                {
+                                    win ?
+                                        <Image source={require('../../assets/imgs/vitoria.png')} style={styles.vitoriaDerrota} /> :
+                                        <Image source={require('../../assets/imgs/derrota.png')} style={styles.vitoriaDerrota} />
+                                }
+                            </View>
                             <Text style={styles.resultText}>
                                 Duração:  {(duration / 60).toFixed(0)} minutos
                             </Text>

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const Api = axios.create({
 
-    baseURL: "http://192.168.0.101:8080/"
+    baseURL: "http://localhost:8080/"
 });
 
 export const getAllUsers = async () => {
