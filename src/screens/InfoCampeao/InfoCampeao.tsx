@@ -1,17 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Text, View, Image, FlatList, TouchableOpacity, Button, Platform, TouchableWithoutFeedback } from "react-native";
+import { Text, View, Image, FlatList, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 import { styles } from "./istyles";
 import { Skins } from "../../components/Skins/Skins";
+import Skill from "../../components/Skill/Skill"
 import Modal from 'react-native-modal';
+import Load from "../load";
 import { Video } from 'expo-av'
-import { Dimensions } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStack } from "../../routes/Stack.routes"
-
-const screenWidth = Dimensions.get('window').width;
-
 
 interface Champion {
   id: string;
@@ -64,7 +62,7 @@ interface Champion {
   ];
   passive: {
     name: string;
-    description: string; // Corrigido para string
+    description: string;
     image: {
       full: string;
     };
@@ -82,13 +80,11 @@ export interface InfoCampeaoProps {
   };
 }
 
-
 const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
   const [championInfo, setChampionInfo] = useState<Champion | null>(null);
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedContent, setSelectedContent] = useState<string | null>(null);;
   const videoRef = useRef<Video>(null);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -113,10 +109,8 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
     fetchData();
   }, []);
 
-
-
   if (!championInfo) {
-    return <Text>Carregando dados...</Text>;
+    return <Load/>;
   }
 
   const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.id}_0.jpg`
@@ -145,7 +139,6 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
 
   const skinsArray = championInfo.skins.map(skin => skin.num);
 
-
   const imagePathArray = skinsArray.map((num, index) => ({
     id: index.toString(),
     url: `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championInfo.id}_${num}.jpg?t=${Date.now()}`
@@ -155,7 +148,6 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
     setSelectedContent(content);
     setModalVisible(!isModalVisible);
 
-    // Pausa o vídeo ao fechar o modal
     if (!isModalVisible && videoRef.current) {
       videoRef.current.pauseAsync();
       videoRef.current.unloadAsync()
@@ -166,82 +158,44 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
     switch (selectedContent) {
       case 'videoPassive':
         return (
-          <View style={styles.containerVideo}>
-            <Video
-              ref={videoRef}
-              style={{ width: screenWidth, aspectRatio: 16 / 9 }}
-              source={{ uri: VideoPassiva }}
-              resizeMode={"contain" as any}
-              shouldPlay={true}
-              isMuted={false}
-              isLooping={true}
-            />
-            <Text style={styles.tituloSkills}>{championInfo.passive.name}</Text>
-            <Text style={styles.text}>{championInfo.passive.description}</Text>
-          </View>
+          <Skill
+            videoUri={VideoPassiva}
+            name={championInfo.passive.name}
+            description={championInfo.passive.description}
+          />
         )
 
       case 'imagemQ':
         return (
-          <View style={styles.containerVideo}>
-            <Video
-              ref={videoRef}
-              style={{ width: screenWidth, aspectRatio: 16 / 9 }}
-              source={{ uri: VideoQ }}
-              resizeMode={'center' as any}
-              shouldPlay={true}
-              isMuted={false}
-              isLooping={true}
-            />
-            <Text style={styles.tituloSkills}>{championInfo.spells[0].name}</Text>
-            <Text style={styles.text}>{championInfo.spells[0].description}</Text>
-          </View>
+          <Skill
+            videoUri={VideoQ}
+            name={championInfo.spells[0].name}
+            description={championInfo.spells[0].description}
+          />
         )
       case 'imagemW':
-        return (<View style={styles.containerVideo}>
-          <Video
-            ref={videoRef}
-            style={{ width: screenWidth, aspectRatio: 16 / 9 }}
-            source={{ uri: VideoW }}
-            resizeMode={"contain" as any}
-            shouldPlay={true}
-            isMuted={false}
-            isLooping={true}
+        return (
+          <Skill
+            videoUri={VideoW}
+            name={championInfo.spells[1].name}
+            description={championInfo.spells[1].description}
           />
-          <Text style={styles.tituloSkills}>{championInfo.spells[1].name}</Text>
-          <Text style={styles.text}>{championInfo.spells[1].description}</Text>
-        </View>)
+        )
       case 'imagemE':
         return (
-          <View style={styles.containerVideo}>
-            <Video
-              ref={videoRef}
-              style={{ width: screenWidth, aspectRatio: 16 / 9 }}
-              source={{ uri: VideoE }}
-              resizeMode={"contain" as any}
-              shouldPlay={true}
-              isMuted={false}
-              isLooping={true}
-            />
-            <Text style={styles.tituloSkills}>{championInfo.spells[2].name}</Text>
-            <Text style={styles.text}>{championInfo.spells[2].description}</Text>
-          </View>
+          <Skill
+            videoUri={VideoE}
+            name={championInfo.spells[2].name}
+            description={championInfo.spells[2].description}
+          />
         )
       case 'imagemR':
         return (
-          <View style={styles.containerVideo}>
-            <Video
-              ref={videoRef}
-              style={{ width: screenWidth, aspectRatio: 16 / 9 }}
-              source={{ uri: VideoR }}
-              resizeMode={"contain" as any}
-              shouldPlay={true}
-              isMuted={false}
-              isLooping={true}
-            />
-            <Text style={styles.tituloSkills}>{championInfo.spells[3].name}</Text>
-            <Text style={styles.text}>{championInfo.spells[3].description}</Text>
-          </View>
+          <Skill
+            videoUri={VideoR}
+            name={championInfo.spells[3].name}
+            description={championInfo.spells[3].description}
+          />
         )
 
       default:
@@ -259,18 +213,17 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
       />
       <Image source={require('../../assets/imgs/degrade.png')} style={styles.backgroundImage} />
 
-      <TouchableOpacity style={styles.icon} onPress={()=> 
-        {
-          navigation.navigate('TabNavigation')
-          setChampionInfo(null);}}>
-        <AntDesign name="leftcircle" size={35} color="white" style={{ opacity: 0.3 }}/>
+      <TouchableOpacity style={styles.icon} onPress={() => {
+        navigation.navigate('TabNavigation')
+        setChampionInfo(null);
+      }}>
+        <AntDesign name="leftcircle" size={35} color="white" style={{ opacity: 0.3 }} />
       </TouchableOpacity>
 
       <View style={styles.degrade}>
 
         <Text style={styles.subTitulo}>{championInfo.title}</Text>
         <Text style={styles.titulo}>{championInfo.id}</Text>
-
 
         <View style={styles.containerLore}>
           <Text style={styles.text}>{championInfo.lore}</Text>
@@ -331,7 +284,6 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
 
         </View>
 
-
         <View style={styles.containerConteudo}>
           <FlatList
             data={imagePathArray}
@@ -341,10 +293,9 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
             )}
             horizontal
             showsHorizontalScrollIndicator={false}
-
           />
-
         </View>
+
       </View>
 
       <TouchableWithoutFeedback onPress={() => { setModalVisible(false) }}>
@@ -354,8 +305,6 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
       </TouchableWithoutFeedback>
 
     </View>
-
-
   );
 };
 
