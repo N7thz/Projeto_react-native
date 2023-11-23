@@ -137,16 +137,14 @@ export const Profile = () => {
 
             setTopChampionsObject(arrayFilter.sort())
 
-            console.log(topChampionsObject);
-
-            getHistoryMatch(puuId, key)
+            getHistoryMatch(puuId)
 
         } catch (error) {
             console.error('Erro ao filtrar champions')
         }
     }
 
-    const getHistoryMatch = (puuId: string, key: string) => {
+    const getHistoryMatch = (puuId: string) => {
 
         axios
             .get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuId}/ids?start=0&count=20&api_key=${key}`)
@@ -154,10 +152,17 @@ export const Profile = () => {
 
                 const matchId = response.data[0]
 
-                setHistory(matchId)
-
-                return axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${key}`)
+                getPartida(matchId)
             })
+            .catch((error) => {
+                console.error('Erro ao obter histórico:', error.message)
+            })
+    }
+
+    const getPartida = (matchId: string) => {
+
+        axios
+            .get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${key}`)
             .then((infoPartida) => {
 
                 const partidaData = infoPartida.data.info
@@ -172,23 +177,28 @@ export const Profile = () => {
                 statusPlayer(participantes)
             })
             .catch((error) => {
-                console.error('Erro ao obter histórico:', error.message)
+                console.error('Erro ao obter dados da partida:', error.message)
             })
     }
 
     const statusPlayer = (participantes: any[]) => {
 
-        participantes.map((participante) => {
+        try {
 
-            if (participante.summonerName.toUpperCase() === nickName.toUpperCase()) {
+            participantes.map((participante) => {
 
-                setPlayer(participante)
-                setAssists(participante.assists)
-                setDeaths(participante.deaths)
-                setKda(participante.challenges.kda)
-                setKills(participante.kills)
-            }
-        })
+                if (participante.summonerName.toUpperCase() === nickName.toUpperCase()) {
+
+                    setPlayer(participante)
+                    setAssists(participante.assists)
+                    setDeaths(participante.deaths)
+                    setKda(participante.challenges.kda)
+                    setKills(participante.kills)
+                }
+            })
+        } catch {
+            console.error('Erro ao obter dados do player:')
+        }
     }
 
     return (
@@ -216,24 +226,16 @@ export const Profile = () => {
                         <View style={styles.box}>
 
                             <Text style={styles.subtitle}>Principais Campeões</Text>
-                            {/* <FlatList
-                                scrollEnabled={false}
-                                data={topChampions} 
-                                renderItem={({ item }: { item: TopChampionsObject }) => (<CardMaestria campeao={item} />)}
-                                keyExtractor={(item) => item.key}
-                            /> */}
-                            <View style={{ flexDirection: 'row' }}>
 
-                                {topChampions.map((item) => (
-                                    <CardMaestria key={item.puuid} campeao={item} />
-                                ))}
-                            </View>
-                            {/* <FlatList
-                                scrollEnabled={false}
+                            <FlatList
                                 data={topChampions}
-                                renderItem={({ item }: { item: TopChampionsObject }) => (<ChampionInfo item={item} />)}
-                                keyExtractor={(item) => item.key}
-                            /> */}
+                                keyExtractor={(item) => item.puuid.toString()}
+                                renderItem={({ item }) => (
+                                    <CardMaestria campeao={item} />
+                                )}
+                                horizontal={true}
+                                showsHorizontalScrollIndicator={false}
+                            />
                         </View>
 
                         <View style={styles.info}>

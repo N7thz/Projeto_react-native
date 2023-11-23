@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, TextInput, ImageBackground, Touchable, TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp} from '@react-navigation/native-stack'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStack } from '../../routes/Stack.routes';
 import { getUser } from '../../service/api';
 import { postUser } from '../../service/api';
@@ -33,26 +33,25 @@ export function Register() {
         revisionDate: number
         summonerLevel: number
     }
-    
-    const Cadastrar = async () => { 
-        const response = await getUser( email, senha)
-        console.log(response)
+
+    const Cadastrar = async () => {
+        const response = await getUser(email, senha)
 
         if (response.data.length == 1) {
-            
-           alert('Esse usuário já existe! Tente novamente.')
-           setNickLol('')
-           setNome('')
-           setEmail('')
-           setSenha('')
+
+            alert('Esse usuário já existe! Tente novamente.')
+            setNickLol('')
+            setNome('')
+            setEmail('')
+            setSenha('')
         } else {
 
-            postUser( nome, email, senha, dadosLol)
+            postUser(nome, email, senha, dadosLol)
             alert('Cadastro efetuado com sucesso!')
         }
     }
-    
-    return(
+
+    return (
         <ImageBackground source={background} style={styles.background}>
             <View style={styles.container}>
 
@@ -61,28 +60,28 @@ export function Register() {
                 <TextInput
                     style={styles.input}
                     placeholder='Nick'
-                    onChangeText={text=>setNickLol(text)}
+                    onChangeText={text => setNickLol(text)}
                     value={nickLol}
                 />
 
                 <TextInput
                     style={styles.input}
                     placeholder='Nome'
-                    onChangeText={text=>setNome(text)}
+                    onChangeText={text => setNome(text)}
                     value={nome}
                 />
 
-                <TextInput 
-                    style={styles.input} 
+                <TextInput
+                    style={styles.input}
                     placeholder='Email'
-                    onChangeText={text=>setEmail(text)}
+                    onChangeText={text => setEmail(text)}
                     value={email}
                 />
 
                 <TextInput
-                    style={styles.input}   
-                    placeholder='Senha' 
-                    onChangeText={text=>setSenha(text)}
+                    style={styles.input}
+                    placeholder='Senha'
+                    onChangeText={text => setSenha(text)}
                     value={senha}
                 />
 

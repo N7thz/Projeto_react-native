@@ -12,9 +12,12 @@ export default function App() {
   
   // Desestruture a tupla retornada por useFonts
   const [fontsLoaded, error] = useFonts({
-    'LolFont-Medium': require('./src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-MediumItalic.otf'),
-    'LolFont-Bold': require('./src/Fontes/Fonts_Package/BeaufortForLoL-OTF/BeaufortforLOL-HeavyItalic.otf'),
-    'LolFont-Text': require('./src/Fontes/Fonts_Package/Spiegel-OTF/Spiegel-Regular.otf'),
+
+    'LolFont-Medium': require('./src/assets/fonts/BeaufortforLOL-MediumItalic.otf'),
+
+    'LolFont-Bold': require('./src/assets/fonts/BeaufortforLOL-HeavyItalic.otf' ),
+
+    'LolFont-Text': require('./src/assets/fonts/Spiegel-Regular.otf'),
     
   });
   

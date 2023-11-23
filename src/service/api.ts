@@ -2,7 +2,7 @@ import axios from "axios";
 
 const Api = axios.create({
     
-    baseURL: "http://localhost:8080/"
+    baseURL: "http://192.168.0.101:8080/"
 });
 
 export const getAllUsers = async () => {
@@ -26,7 +26,6 @@ export const getUserData = (nickName: string, key: string,) => {
         .get(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${nickName}?api_key=${key}`)
         .then((response) => {
 
-            console.log(response);
 
             return response
         })

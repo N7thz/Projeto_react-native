@@ -14,9 +14,9 @@ import { useNavigation } from '@react-navigation/native'
 
 type RootStackParamList = {
     InfoCampeao: { championId: string };
-  };
+};
 
-  type InfoCampeaoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'InfoCampeao'>;
+type InfoCampeaoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'InfoCampeao'>;
 
 interface Champion {
     id: string;
@@ -28,21 +28,21 @@ interface Champion {
 
 interface Props {
     campeao: {
-    puuid: string;
-    championId: number;
-    championLevel: number;
-    championPoints: number;
-    lastPlayTime: number;
-    championPointsSinceLastLevel: number;
-    championPointsUntilNextLevel: number;
-    chestGranted: boolean;
-    tokensEarned: number;
-    summonerId: string;
+        puuid: string;
+        championId: number;
+        championLevel: number;
+        championPoints: number;
+        lastPlayTime: number;
+        championPointsSinceLastLevel: number;
+        championPointsUntilNextLevel: number;
+        chestGranted: boolean;
+        tokensEarned: number;
+        summonerId: string;
     }
-  }
+}
 
-  export const CardMaestria: React.FC<Props> = ({ campeao }: Props) => {
-      const { puuid,
+export const CardMaestria: React.FC<Props> = ({ campeao }: Props) => {
+    const { puuid,
         championId,
         championLevel,
         championPoints,
@@ -52,47 +52,44 @@ interface Props {
         chestGranted,
         tokensEarned,
         summonerId, } = campeao;
-        const [championData, setChampionData] = useState<Champion[]>([]);
-        
-        
-        
-        
-        useEffect(() => {
-            const fetchData = async () => {
-                try {
-                    const response = await fetch(
-                        "https://ddragon.leagueoflegends.com/cdn/13.22.1/data/pt_BR/champion.json"
-                        );
-                        if (!response.ok) {
-                            throw new Error("Erro ao carregar dados da API");
-                        }
-                        const data = await response.json();
-                        setChampionData(Object.values(data.data));
-                    } catch (error) {
-                        console.error("Erro na requisição:", error);
-                    }
-                };
-                
-                fetchData();
-            }, []);
-            
-            
-            const campeaoCorrespondente = championData.find(champion => parseInt(champion.key) == championId);
-            
-            const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${campeaoCorrespondente?.id}_0.jpg`;
-            
-            console.log("Conteúdo de championData:", campeaoCorrespondente?.id);
-            
-            
-            const navigation = useNavigation<InfoCampeaoScreenNavigationProp>();
-            
-             const handlePress = () => {
-                if (campeaoCorrespondente) {
-                    console.log("entrei")
-                    navigation.navigate('InfoCampeao', { championId: campeaoCorrespondente.id });
-                  }
-                };
-                
+    const [championData, setChampionData] = useState<Champion[]>([]);
+
+
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    "https://ddragon.leagueoflegends.com/cdn/13.22.1/data/pt_BR/champion.json"
+                );
+                if (!response.ok) {
+                    throw new Error("Erro ao carregar dados da API");
+                }
+                const data = await response.json();
+                setChampionData(Object.values(data.data));
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
+    const campeaoCorrespondente = championData.find(champion => parseInt(champion.key) == championId);
+
+    const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${campeaoCorrespondente?.id}_0.jpg`;
+
+    const navigation = useNavigation<InfoCampeaoScreenNavigationProp>();
+
+    const handlePress = () => {
+        if (campeaoCorrespondente) {
+
+            navigation.navigate('InfoCampeao', { championId: campeaoCorrespondente.id });
+        }
+    };
+
     let maestriaImage;
 
     switch (championLevel) {
@@ -122,7 +119,7 @@ interface Props {
     return (
         <View style={styles.container}>
             <View>
-                <TouchableOpacity  onPress={handlePress}>
+                <TouchableOpacity onPress={handlePress}>
                     <Image
                         source={{ uri: imageUrl }}
                         style={styles.image}
