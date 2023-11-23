@@ -6,6 +6,7 @@ import Home from '../screens/Home/Home';
 import App5 from "../../App5";
 import InfoCampeao from "../screens/InfoCampeao/InfoCampeao";
 import { TabNavigation } from "./Tab.routes";
+import { Register } from "../screens/Register";
 
 
 const Stack = createNativeStackNavigator<RootStack>();
@@ -14,7 +15,9 @@ export type RootStack = {
     Home: undefined;
     LoginScreen: undefined;
     TabNavigation: undefined;
+    Register: undefined;
     InfoCampeao: undefined;
+
 }
 
 export function StackNavigator(){
@@ -39,6 +42,7 @@ export function StackNavigator(){
             <Stack.Screen name="LoginScreen" component={LoginScreen}/> 
             <Stack.Screen name="InfoCampeao" component={InfoCampeao}/>
             <Stack.Screen name="TabNavigation" component={TabNavigation}/>
+            <Stack.Screen name="Register" component={Register} />
         </Stack.Navigator>
     )
 }       

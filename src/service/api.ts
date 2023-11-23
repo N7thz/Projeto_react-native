@@ -15,9 +15,9 @@ export const getUser = async (email: string, password: string) => {
     return await Api.get('users', { params: { email, password } })
 }
 
-export const postUser = (email: string, password: string) => {
+export const postUser = (nome: string ,email: string, password: string, dadosLol: Array<{}>) => {
 
-    return Api.post('users', { email, password })
+    return Api.post('users', { nome, email, password, dadosLol})
 }
 
 export const getUserData = (nickName: string, key: string,) => {
