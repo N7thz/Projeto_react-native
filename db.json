@@ -29,8 +29,8 @@
       "id": 2
     },
     {
-      "email": "teste",
-      "password": "1234",
+      "email": "leo@gmail.com",
+      "password": "12345",
       "dados": {
         "id": "wSTk90E_YZEYudlKqsXUEZiIweEJ6Ye4rgpOjar7gyWmw17f4P_q-psgeA",
         "accountId": "o6ssvqrAiQk6Chn5MgRVrN8-nqmLL6zPOk3dcse_vMMvuMHDGcw6o_-X",
@@ -41,6 +41,20 @@
         "summonerLevel": 34
       },
       "id": 3
+    },
+    {
+      "email": "lucas@gmail.gmail.com",
+      "password": "12345",
+      "dados": {
+        "id": "wSTk90E_YZEYudlKqsXUEZiIweEJ6Ye4rgpOjar7gyWmw17f4P_q-psgeA",
+        "accountId": "o6ssvqrAiQk6Chn5MgRVrN8-nqmLL6zPOk3dcse_vMMvuMHDGcw6o_-X",
+        "puuid": "C2SvGETKE-LEfLELL8eB7NqM2oHMi05Did0boxx5QA969_Z6tBXTFgHZFa6VwVBWIYc89yqYDinCBQ",
+        "name": "Vulgo Nham Nham",
+        "profileIconId": 6340,
+        "revisionDate": 1700587847000,
+        "summonerLevel": 34
+      },
+      "id": 4
     }
   ]
 }

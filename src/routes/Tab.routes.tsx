@@ -3,7 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { Ionicons} from '@expo/vector-icons'
 import Home from '../screens/Home/Home';
-import { Profile } from '../screens/profile';
+import { Profile } from '../screens/Profile';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator()
 
@@ -11,17 +12,25 @@ export function TabNavigation() {
 
     return (
 
-        <Tab.Navigator screenOptions={{ headerShown: false}}>
+        <Tab.Navigator 
+        screenOptions={{
+             headerShown: false,
+            tabBarStyle: { backgroundColor: '#c09d53' }, 
+            
+          }}
+         >
             <Tab.Screen
-                name="Home"
+                name="Inicio"
+
                 component={Home}
                 options={{
                     tabBarIcon: ({ focused, size, color }) => {
                         if (focused) {
-                            return <Ionicons name="home" size={size} color={color} />;
+                            return <MaterialCommunityIcons name="sword-cross" size={size} color={"#13d8f6"} />;
                         }
-                        return <Ionicons name="home-outline" size={size} color={color} />;
+                        return <MaterialCommunityIcons name="sword-cross" size={size}  color={color} />;
                     },
+                    tabBarLabel: '',
                 }}
             />
 
@@ -32,10 +41,11 @@ export function TabNavigation() {
                     tabBarIcon: ({ focused, size, color }) => {
 
                         if (focused) {
-                            return <Ionicons name="person" size={size} color={color} />;
+                            return <Ionicons name="person" size={size} color={"#13d8f6"} />;
                         }
                             return <Ionicons name="person-outline" size={size} color={color} />;
                     },
+                    tabBarLabel: '',
                 }}
             />
         </Tab.Navigator>

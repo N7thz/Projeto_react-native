@@ -131,5 +131,14 @@ export const styles = StyleSheet.create({
         fontFamily: 'LolFont-Text',
         padding: 4
     },
+    vitoriaDerrota: {
+        width: 165,
+        height: 90,
+        justifyContent: 'center'
+    },
+    imageContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 
 })
