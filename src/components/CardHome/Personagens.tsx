@@ -3,11 +3,10 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { styles } from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack';
-import  InfoCampeao  from '../../screens/InfoCampeao/InfoCampeao'
+
 
 type RootStackParamList = {
   InfoCampeao: { championId: string };
-  // ... outros nomes de páginas
 };
 
 interface PersonagensProps {

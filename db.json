@@ -1,37 +1,46 @@
 {
   "users": [
     {
-      "nome": "Andre Maia",
-      "email": "andre@gmail.com",
-      "senha": "123456", 
-      "dadosLol": [
-        {
-          "id": "Gp4y6wK_ilLptvbLxbQYAmdq-cgOLK7jBVw_pNwIYrX7PA",
-          "accountId": "cOtO_FRQxoW77sglgOiH4dMJjMYB0iRTGWP-C5l9Y7EG",
-          "puuid": "xDQb8I4IuZKSyNKW8cz2F6zVZJcYN7NSzKe3GmBVKa21-cULS9vQEO9UAsvDIRp-j212ZRF8DLDAOg",
-          "name": "Vl44D",
-          "profileIconId": 4022,
-          "revisionDate": 1700461328000,
-          "summonerLevel": 167
-      }  
-      ]            
+      "email": "vlad@gmail.com",
+      "password": "abacaxi",
+      "dados": {
+        "id": "RtRigSsFNXlfVq-2zQuckLaYGv_ko_-21NADCp3a_73QtA",
+        "accountId": "HXjb12wphxnWtNWarFciAwbUR-4TF5p89-M3Kiy62BHE",
+        "puuid": "1ZTLuLUEA76zbM-vFPlIZkJy8pRR1nsI48LR5pEzGaGmhrogbD9FZtEyWyAMflNzFWjLvXH9SaRFVQ",
+        "name": "Vl44D",
+        "profileIconId": 4022,
+        "revisionDate": 1700461328000,
+        "summonerLevel": 167
+      },
+      "id": 1
     },
     {
-      "nome": "Leonardo Lucas",
-      "email": "leonardo@gmail.com",
-      "senha": "123456", 
-      "dadosLol": [
-        {
-        "id": "LzNwwCoroCkToY0Ss2tfP6h833LW4GkaI4sJ1AxiSoJFP2sbETZK72pATg",
-        "accountId": "nRoYfG2PZQqVQHWhPeBVczNMQm2DDgmtJ1SnuigfCFXvO8vJI8-sSofc",
-        "puuid": "qKj-X3Z1Gt-y9dm3MYm21LtnQfS_aKie6DdD1ucjUGa7Kp59BSpt35NFxfSHBhxc0BgUGNsOSseOgw",
+      "email": "xexe@gmail.com",
+      "password": "1234",
+      "dados": {
+        "id": "MA9oU4VfqHlawKZxNkTGy5rPIL9ayoY8AO2WrOQoiydSdA",
+        "accountId": "PNc8CZFYEj1msbNDbVBHk5hvabRMcYdbxm2KjUN0_57pyso",
+        "puuid": "uCVSY_dZMhsr1sqPsKt3ThNmKqqkaly_VQhOO-VLeVNImljvQW2I8RuRup77rApGJ_S3kCrZVxmy8w",
+        "name": "Xeraf",
+        "profileIconId": 4425,
+        "revisionDate": 1700708525182,
+        "summonerLevel": 486
+      },
+      "id": 2
+    },
+    {
+      "email": "teste",
+      "password": "1234",
+      "dados": {
+        "id": "wSTk90E_YZEYudlKqsXUEZiIweEJ6Ye4rgpOjar7gyWmw17f4P_q-psgeA",
+        "accountId": "o6ssvqrAiQk6Chn5MgRVrN8-nqmLL6zPOk3dcse_vMMvuMHDGcw6o_-X",
+        "puuid": "C2SvGETKE-LEfLELL8eB7NqM2oHMi05Did0boxx5QA969_Z6tBXTFgHZFa6VwVBWIYc89yqYDinCBQ",
         "name": "Vulgo Nham Nham",
         "profileIconId": 6340,
-        "revisionDate": 1700587847472,
-        "summonerLevel": 34 
-        }
-      ]  
-              
+        "revisionDate": 1700587847000,
+        "summonerLevel": 34
+      },
+      "id": 3
     }
   ]
 }

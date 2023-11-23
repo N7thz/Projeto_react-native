@@ -1,47 +1,56 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingHorizontal: 20,
-      
-    },
-    input: {
-      height: 40,
-      width: '100%',
-      borderColor: 'gray',
-      borderWidth: 1,
-      marginBottom: 20,
-      paddingHorizontal: 10,
-      backgroundColor: "#fff"
-    },
-    button: {
 
-      backgroundColor: '#C09D53',
-      shadowColor: '#171717',
-      shadowOffset: { width: -2, height: 4 },
-      shadowOpacity: 0.2,
-      shadowRadius: 3,
-      width: '50%',
-      height: 60,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 12,
-    },
+  background: {
 
-    textButton: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 
-      fontSize: 32,
-      color: 'white',
-      fontFamily: 'LolFont'
-    },
-    backgroundImage: {
-      flex: 1,
-      resizeMode: 'cover',
-      width: '100%',
-      height: '100%',
-      position: 'absolute',
+  container: {
+
+    height: 400,
+    width: 320,
+    backgroundColor: 'rgba(255,255,255,0.7);',
+    borderRadius: 15,
+    alignItems: 'center',
+  },
+
+  title: {
+
+    fontSize: 28,
+    paddingTop: 20
+  },
+
+  input: {
+
+    color: '#404040',
+    backgroundColor: '#D9D9D9',
+    fontSize: 16,
+    marginTop: 30,
+    padding: 10,
+    borderRadius: 3,
+    marginBottom: 1,
+    height: 40,
+    width: 240,
+  },
+
+  button: {
+
+    width: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
+    marginTop: 25,
+    marginBottom: 15,
+    borderRadius: 10,
+    backgroundColor: '#FFFFFF'
+  },
+
+  link: {
+
   }
 })
