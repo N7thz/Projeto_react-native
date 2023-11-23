@@ -88,6 +88,7 @@ interface Props {
             
              const handlePress = () => {
                 if (campeaoCorrespondente) {
+                    console.log("entrei")
                     navigation.navigate('InfoCampeao', { championId: campeaoCorrespondente.id });
                   }
                 };
