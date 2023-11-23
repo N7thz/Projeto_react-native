@@ -32,9 +32,9 @@ export function Register() {
 
     const navigation = useNavigation<NativeStackNavigationProp<RootStack>>()
 
-    const obterJogador = (nickName: string, chave: string) => {
+    const obterJogador = (nickName: string, key: string) => {
         axios
-            .get(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${nickName}?api_key=${chave}`)
+            .get(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${nickName}?api_key=${key}`)
             .then((response) => {
 
                 const dados = response.data
