@@ -34,13 +34,8 @@ export const Profile = () => {
     const [assists, setAssists] = useState<number>(0)
     const [win, setWin] = useState<boolean>(false)
 
-<<<<<<< HEAD
-    const key: string = 'RGAPI-d7260307-05a9-4be3-98e8-156b7e68075e'
-    const nickName: string = 'Vl44D'
-=======
     const { nick } = useContext(ApplicationContext)
 
->>>>>>> 1d0b74e4e99c258380bf08821990d671a86b42e0
     const image: any = `https://ddragon.leagueoflegends.com/cdn/13.23.1/img/profileicon/${icon}.png`
 
     const { key } = useContext(ApplicationContext)

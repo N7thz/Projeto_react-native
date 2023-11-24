@@ -55,6 +55,34 @@
         "summonerLevel": 34
       },
       "id": 4
+    },
+    {
+      "email": "jane@gmail.com",
+      "password": "12345",
+      "dados": {
+        "id": "FRmAju4qZe2nIBd1NB6yt9bULUQJhOcitT6HJrzwacB2-28",
+        "accountId": "FpiPGbBNEo7eUwHtsJxrJG6j-2yLOYmvV2-bWgPHfy95g1Y",
+        "puuid": "9v3EbO-csHZDb7O9K3dGaGLwJ415_kuWQYdYPIwvGdJL8nViR8x1f_M4wjyPFOmx4sTt_-sOXMPxqg",
+        "name": "Dark Orion",
+        "profileIconId": 4073,
+        "revisionDate": 1700758050000,
+        "summonerLevel": 431
+      },
+      "id": 5
+    },
+    {
+      "email": "jane1@gmail.com",
+      "password": "12345",
+      "dados": {
+        "id": "yPkbNSQsCA1DobvenXcbf0Iiy7ZSyOfq9s2aAZgSxC-3Ew",
+        "accountId": "H8qMB7-uClS_X7BqrZ-ybaWpp36XZKJYUKuH0kY1ifns",
+        "puuid": "Ny5RlYtQ1QICtT0v0-fErFnZn7DYKn65__y7zIZXgfoE4ATpKiYnWnrqnodPluNltKOKOeNTlvxwEA",
+        "name": "Darkorioon",
+        "profileIconId": 3533,
+        "revisionDate": 1700753224919,
+        "summonerLevel": 357
+      },
+      "id": 6
     }
   ]
 }
