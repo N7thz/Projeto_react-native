@@ -7,6 +7,7 @@ import { TabNavigation } from "./Tab.routes"
 import { Register } from "../screens/Register"
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import React from "react"
 
 const Stack = createNativeStackNavigator<RootStack>()
 
