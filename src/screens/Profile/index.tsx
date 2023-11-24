@@ -275,8 +275,7 @@ export const Profile = () => {
                                 {
                                     win ?
                                         <Image source={require('../../assets/imgs/derrota.png')} style={styles.vitoriaDerrota} /> :
-                                        <Image source={require('../../assets/imgs/vitoria.png')} style={styles.vitoriaDerrota} /> 
-                                        
+                                        <Image source={require('../../assets/imgs/vitoria.png')} style={styles.vitoriaDerrota} />                                         
                                 }
                             </View>
                             <Text style={styles.resultText}>

@@ -16,6 +16,7 @@ import { RootStack } from '../../routes/Stack.routes';
 
 import { AntDesign } from '@expo/vector-icons';
 import { ApplicationContext } from '../../context/context';
+import { Ionicons } from '@expo/vector-icons';
 
 
 export const LoginScreen = () => {
@@ -24,6 +25,7 @@ export const LoginScreen = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const { setNick } = useContext(ApplicationContext)
 
@@ -39,7 +41,7 @@ export const LoginScreen = () => {
     }
   }
 
-  const Logar = async ( ) => {
+  const Logar = async () => {
 
     const response = await getUser(email, password)
 
@@ -63,6 +65,10 @@ export const LoginScreen = () => {
     setPassword('')
   }
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
 
     <ImageBackground
@@ -83,13 +89,18 @@ export const LoginScreen = () => {
           value={email}
         />
 
-        <TextInput
-          style={styles.input}
-          placeholder="Senha"
-          secureTextEntry
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-        />
+        <View >
+          <TextInput
+            style={styles.input}
+            placeholder="Senha"
+            secureTextEntry={!showPassword}
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+          />
+          <TouchableOpacity onPress={togglePasswordVisibility} style={styles.eyeIconContainer}>
+            {showPassword ? <Ionicons name="eye-outline" size={16} color="black" /> : <Ionicons name="eye-off-outline" size={16} color="black" />}
+          </TouchableOpacity>
+        </View>
 
         <TouchableOpacity
           style={styles.button} activeOpacity={.7}

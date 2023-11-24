@@ -9,6 +9,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  ladoALado: {
+    flexDirection: 'row',
+    marginVertical: '2.5%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
   container: {
 
@@ -52,5 +58,10 @@ export const styles = StyleSheet.create({
 
   link: {
 
+  },
+  eyeIconContainer: {
+    position: 'absolute',
+    top: 40, 
+    right: 10,
   }
 })
