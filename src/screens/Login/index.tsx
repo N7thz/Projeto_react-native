@@ -39,7 +39,7 @@ export const LoginScreen = () => {
     }
   }
 
-  const Logar = async () => {
+  const Logar = async ( ) => {
 
     const response = await getUser(email, password)
 

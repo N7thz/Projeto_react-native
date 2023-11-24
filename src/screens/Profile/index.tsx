@@ -17,12 +17,14 @@ import Background from '../../assets/imgs/background-profile.jpg'
 import Faixa from '../../assets/imgs/faixa-lol.png'
 
 import { styles } from './styles'
+
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStack } from '../../routes/Stack.routes'
 import Load from '../load'
+
 
 export const Profile = () => {
 
@@ -267,17 +269,13 @@ export const Profile = () => {
                                 }>
                                 Última partida
                             </Text>
-
-                            {
-                                win ?
-                                    <Text style={[styles.result, { color: 'blue' }]}>
-                                        - Vitória -
-                                    </Text> :
-                                    <Text style={[styles.result, { color: 'red' }]}>
-                                        - Derrota -
-                                    </Text>
-                            }
-
+                            <View style={styles.imageContainer}>
+                                {
+                                    win ?
+                                        <Image source={require('../../assets/imgs/vitoria.png')} style={styles.vitoriaDerrota} /> :
+                                        <Image source={require('../../assets/imgs/derrota.png')} style={styles.vitoriaDerrota} />
+                                }
+                            </View>
                             <Text style={styles.resultText}>
                                 Duração:  {(duration / 60).toFixed(0)} minutos
                             </Text>

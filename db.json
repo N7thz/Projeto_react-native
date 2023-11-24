@@ -29,8 +29,8 @@
       "id": 2
     },
     {
-      "email": "teste",
-      "password": "1234",
+      "email": "leo@gmail.com",
+      "password": "12345",
       "dados": {
         "id": "wSTk90E_YZEYudlKqsXUEZiIweEJ6Ye4rgpOjar7gyWmw17f4P_q-psgeA",
         "accountId": "o6ssvqrAiQk6Chn5MgRVrN8-nqmLL6zPOk3dcse_vMMvuMHDGcw6o_-X",
@@ -43,18 +43,60 @@
       "id": 3
     },
     {
-      "email": "teste",
+      "email": "lucas@gmail.gmail.com",
       "password": "12345",
       "dados": {
-        "id": "SbsiBo_N4lMzr5tuZlZCxE34zc66_HJqulbLQLnVTHEENQ",
-        "accountId": "Cl6JDpyVzZjzjBbTn0Xf-WEdH0E8o8j0t1ieH_E7yp0Z",
-        "puuid": "rO4MogqG8kPczgLjs8jUd9gLtAl7E5FpeyaTPAwIwyXNJ5GjRDCab4yTlroghC_UAidDkioH49fJPg",
-        "name": "FredHSQ",
-        "profileIconId": 6271,
-        "revisionDate": 1700280245000,
-        "summonerLevel": 579
+        "id": "wSTk90E_YZEYudlKqsXUEZiIweEJ6Ye4rgpOjar7gyWmw17f4P_q-psgeA",
+        "accountId": "o6ssvqrAiQk6Chn5MgRVrN8-nqmLL6zPOk3dcse_vMMvuMHDGcw6o_-X",
+        "puuid": "C2SvGETKE-LEfLELL8eB7NqM2oHMi05Did0boxx5QA969_Z6tBXTFgHZFa6VwVBWIYc89yqYDinCBQ",
+        "name": "Vulgo Nham Nham",
+        "profileIconId": 6340,
+        "revisionDate": 1700587847000,
+        "summonerLevel": 34
       },
       "id": 4
+    },
+    {
+      "email": "jane@gmail.com",
+      "password": "12345",
+      "dados": {
+        "id": "FRmAju4qZe2nIBd1NB6yt9bULUQJhOcitT6HJrzwacB2-28",
+        "accountId": "FpiPGbBNEo7eUwHtsJxrJG6j-2yLOYmvV2-bWgPHfy95g1Y",
+        "puuid": "9v3EbO-csHZDb7O9K3dGaGLwJ415_kuWQYdYPIwvGdJL8nViR8x1f_M4wjyPFOmx4sTt_-sOXMPxqg",
+        "name": "Dark Orion",
+        "profileIconId": 4073,
+        "revisionDate": 1700758050000,
+        "summonerLevel": 431
+      },
+      "id": 5
+    },
+    {
+      "email": "jane1@gmail.com",
+      "password": "12345",
+      "dados": {
+        "id": "yPkbNSQsCA1DobvenXcbf0Iiy7ZSyOfq9s2aAZgSxC-3Ew",
+        "accountId": "H8qMB7-uClS_X7BqrZ-ybaWpp36XZKJYUKuH0kY1ifns",
+        "puuid": "Ny5RlYtQ1QICtT0v0-fErFnZn7DYKn65__y7zIZXgfoE4ATpKiYnWnrqnodPluNltKOKOeNTlvxwEA",
+        "name": "Darkorioon",
+        "profileIconId": 3533,
+        "revisionDate": 1700753224919,
+        "summonerLevel": 357
+      },
+      "id": 6
+    },
+    {
+      "email": "botafogo",
+      "password": "1",
+      "dados": {
+        "id": "8p68Od54jNQv0lcSLQoI5covdlwTV97R3S3_KHJmBAMpYQ",
+        "accountId": "7mmoi40jTjoZkcgXuTmqPdmszfhvXrDNhlyNc4hWFbDbQqI",
+        "puuid": "yLkE5dzVyBOrTwnWDz0kg4u6wxdm-FJ-D8Idxa3mRLTcTvGtpjYgLkqCveWImIFYUZvh-cnSizM1Fg",
+        "name": "Mai Frende",
+        "profileIconId": 0,
+        "revisionDate": 1596838215000,
+        "summonerLevel": 11
+      },
+      "id": 7
     }
   ]
 }
