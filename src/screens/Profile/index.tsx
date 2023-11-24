@@ -168,7 +168,7 @@ export const Profile = () => {
                 setDuration(partidaData.gameDuration)
                 setGameMode(partidaData.gameMode)
                 setWin(partidaData.teams[1].win)
-
+                console.log('Valor de win:', partidaData.teams[1].win);
                 const participantes = partidaData.participants
 
                 statusPlayer(participantes)
@@ -178,6 +178,8 @@ export const Profile = () => {
             })
     }
 
+
+    
     const statusPlayer = (participantes: any[]) => {
 
         let newPlayer: any
@@ -272,8 +274,9 @@ export const Profile = () => {
                             <View style={styles.imageContainer}>
                                 {
                                     win ?
-                                        <Image source={require('../../assets/imgs/vitoria.png')} style={styles.vitoriaDerrota} /> :
-                                        <Image source={require('../../assets/imgs/derrota.png')} style={styles.vitoriaDerrota} />
+                                        <Image source={require('../../assets/imgs/derrota.png')} style={styles.vitoriaDerrota} /> :
+                                        <Image source={require('../../assets/imgs/vitoria.png')} style={styles.vitoriaDerrota} /> 
+                                        
                                 }
                             </View>
                             <Text style={styles.resultText}>
