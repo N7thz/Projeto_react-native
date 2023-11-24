@@ -65,7 +65,7 @@ interface ContextProps {
 
 export const ApplicationProvider: React.FC<ContextProps> = ({ children }) => {
     
-    const key: string = 'RGAPI-0071a230-93e2-4ca5-bad2-b3b49862b748'
+    const key: string = 'RGAPI-b01485c1-1ac6-4c1f-8732-fbabe83fa123'
 
     const [usuario, setUsuario] = useState<User>(defaultUser)
     const [email, setEmail] = useState<string>('')
@@ -95,9 +95,7 @@ export const ApplicationProvider: React.FC<ContextProps> = ({ children }) => {
                 return value
             }
 
-        } catch (e) {
-            // error reading value
-        }
+        } catch (e) {}
     };
 
     return (
