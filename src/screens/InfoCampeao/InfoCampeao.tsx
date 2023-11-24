@@ -129,13 +129,13 @@ const InfoCampeao: React.FC<InfoCampeaoProps> = ({ route }) => {
 
   const VideoPassiva = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_P1.mp4`
 
-  const VideoQ = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_Q1.mp4`
+  const VideoQ = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_Q1.webm`
 
-  const VideoW = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_W1.mp4`
+  const VideoW = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_W1.webm`
 
-  const VideoE = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_E1.mp4`
+  const VideoE = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_E1.webm`
 
-  const VideoR = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_R1.mp4`
+  const VideoR = `https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0${KeyFormatada}/ability_0${KeyFormatada}_R1.webm`
 
   const skinsArray = championInfo.skins.map(skin => skin.num);
 

@@ -69,10 +69,9 @@ export const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   container: {
-    backgroundColor: '#0d0d1c',
+    backgroundColor: '#09111A',
     width: '100%',
     height: '100%',
-    
   },
   containerVideo: {
     position: 'relative',
@@ -104,7 +103,6 @@ export const styles = StyleSheet.create({
     width: '60%',
     paddingHorizontal: 15,
     color: '#a0a2a3',
-    backgroundColor: '#1e1f23',
     borderRadius: 50,
     margin: '2.5%',
   },
@@ -123,8 +121,8 @@ export const styles = StyleSheet.create({
   },
   containerConteudo: {
     paddingHorizontal: '5%',
-    backgroundColor: '#09111A',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    paddingBottom: "5%"
   },
   degrade: {
     marginTop: -55,
