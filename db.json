@@ -83,6 +83,20 @@
         "summonerLevel": 357
       },
       "id": 6
+    },
+    {
+      "email": "botafogo",
+      "password": "1",
+      "dados": {
+        "id": "8p68Od54jNQv0lcSLQoI5covdlwTV97R3S3_KHJmBAMpYQ",
+        "accountId": "7mmoi40jTjoZkcgXuTmqPdmszfhvXrDNhlyNc4hWFbDbQqI",
+        "puuid": "yLkE5dzVyBOrTwnWDz0kg4u6wxdm-FJ-D8Idxa3mRLTcTvGtpjYgLkqCveWImIFYUZvh-cnSizM1Fg",
+        "name": "Mai Frende",
+        "profileIconId": 0,
+        "revisionDate": 1596838215000,
+        "summonerLevel": 11
+      },
+      "id": 7
     }
   ]
 }

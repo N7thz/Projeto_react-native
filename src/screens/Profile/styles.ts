@@ -4,11 +4,23 @@ export const styles = StyleSheet.create({
 
     background: {
 
-        width: '100%',
-        height: '100%',
+        flex: 1,
         alignItems: 'center',
-        justifyContent: 'space-around',
-        backgroundColor: 'blue'
+        justifyContent: 'center',
+    },
+
+    principal: {
+
+        width: '80%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#00141c',
+        padding: 20,
+        marginLeft: 20,
+        marginTop: 20,
+        borderLeftColor: '#e9a51174',
+        borderRightColor: '#e9a51174',
+        borderWidth: 2
     },
 
     info: {
@@ -17,34 +29,29 @@ export const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: '#00141c',
         marginTop: 50,
-        borderTopColor: '#3b3855',
+        borderColor: '#3b3855',
         borderWidth: 2
-    },
-
-    principal: {
-
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: 20,
-        marginLeft: 20,
-        marginTop: 20,
     },
 
     box: {
 
-        width: '74%',
+        width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#00141c',
-        marginLeft: 52,
+    },
+
+    logout: {
+
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     playerStatus: {
 
         width: '100%',
         alignItems: 'center',
-        marginLeft: -40,
+        justifyContent: 'center',
     },
 
     circle: {
@@ -91,7 +98,7 @@ export const styles = StyleSheet.create({
         fontSize: 32,
         textAlign: 'center',
         color: '#fff',
-        fontFamily: 'LolFont-Medium'
+        fontFamily: 'LolFont-Bold'
     },
 
     subtitle: {
@@ -99,7 +106,7 @@ export const styles = StyleSheet.create({
         fontSize: 24,
         color: '#fff',
         marginVertical: 12,
-        fontFamily: 'LolFont-Text'
+        fontFamily: 'LolFont-Medium'
     },
 
     text: {
