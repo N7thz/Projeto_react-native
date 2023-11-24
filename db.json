@@ -41,6 +41,20 @@
         "summonerLevel": 34
       },
       "id": 3
+    },
+    {
+      "email": "teste",
+      "password": "12345",
+      "dados": {
+        "id": "SbsiBo_N4lMzr5tuZlZCxE34zc66_HJqulbLQLnVTHEENQ",
+        "accountId": "Cl6JDpyVzZjzjBbTn0Xf-WEdH0E8o8j0t1ieH_E7yp0Z",
+        "puuid": "rO4MogqG8kPczgLjs8jUd9gLtAl7E5FpeyaTPAwIwyXNJ5GjRDCab4yTlroghC_UAidDkioH49fJPg",
+        "name": "FredHSQ",
+        "profileIconId": 6271,
+        "revisionDate": 1700280245000,
+        "summonerLevel": 579
+      },
+      "id": 4
     }
   ]
 }

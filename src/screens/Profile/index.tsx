@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Text, View, Image, FlatList, ScrollView, ImageBackground } from 'react-native'
+import {
+    Text, View, Image, FlatList, ScrollView, ImageBackground, TouchableOpacity
+} from 'react-native'
 
 import axios from 'axios'
 
@@ -9,19 +11,26 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { ApplicationContext } from '../../context/context'
 
 import { CardMaestria } from '../../components/CardMaestria/CardMaestria'
+import { ButtonLogout } from '../../components/ButtonLogout'
 
 import Background from '../../assets/imgs/background-profile.jpg'
 import Faixa from '../../assets/imgs/faixa-lol.png'
 
 import { styles } from './styles'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStack } from '../../routes/Stack.routes'
+import Load from '../load'
 
 export const Profile = () => {
 
-    const [nickName, setNick] = useState<string>('')
+    const [nickName, setNickName] = useState<string>('')
     const [level, setLevel] = useState<string>('')
     const [puuId, setPuuId] = useState<string>('')
     const [icon, setIcon] = useState<number>(0)
-    const [topChampions, setTopChampions] = useState<any[]>([])
+    const [topChampions, setTopChampions] = useState<any[] | null>(null)
     const [topChampionsObject, setTopChampionsObject] = useState<any[]>([])
     const [gameMode, setGameMode] = useState<string>()
     const [participantes, setParticipantes] = useState<any[]>([])
@@ -32,16 +41,32 @@ export const Profile = () => {
     const [kda, setKda] = useState<number>(0)
     const [assists, setAssists] = useState<number>(0)
     const [win, setWin] = useState<boolean>(false)
+    const [isLoading, setIsLoading] = useState(true)
 
-    const { nick } = useContext(ApplicationContext)
+    const navigation = useNavigation<NativeStackNavigationProp<RootStack>>()
+
+    const { key, nick } = useContext(ApplicationContext)
+
+    const getData = async () => {
+
+        try {
+
+            if (nick !== '') {
+
+                await getUser(nick, key)
+            }
+
+        } catch (e) {
+
+            console.error('Erro ao efetuar o login')
+        }
+    }
 
     const image: any = `https://ddragon.leagueoflegends.com/cdn/13.23.1/img/profileicon/${icon}.png`
 
-    const { key } = useContext(ApplicationContext)
-
     useEffect(() => {
 
-        getUser( nick, key)
+        getData()
     }, [])
 
     interface Player {
@@ -62,7 +87,7 @@ export const Profile = () => {
                 const responseData = response.data
                 const puuId = responseData.puuid
 
-                setNick(responseData.name)
+                setNickName(responseData.name)
                 setLevel(responseData.summonerLevel)
                 setPuuId(responseData.puuid)
                 setIcon(responseData.profileIconId)
@@ -137,9 +162,6 @@ export const Profile = () => {
 
                 const partidaData = infoPartida.data.info
 
-                console.log(partidaData);
-                
-
                 setParticipantes(partidaData.participants)
                 setDuration(partidaData.gameDuration)
                 setGameMode(partidaData.gameMode)
@@ -156,53 +178,78 @@ export const Profile = () => {
 
     const statusPlayer = (participantes: any[]) => {
 
+        let newPlayer: any
+        let newKills: any
+        let newAssists: any
+        let newDeaths: any
+        let newKda: any
+
+
+        participantes.map((participante) => {
+
+            if (participante.summonerName.toUpperCase() === nick.toUpperCase()) {
+
+                newPlayer = participante
+                newKills = participante.kills
+                newAssists = participante.assists
+                newDeaths = participante.deaths
+                newKda = participante.challenges.kda
+            }
+        })
+
+        setPlayer(newPlayer)
+        setKills(newKills)
+        setAssists(newAssists)
+        setDeaths(newDeaths)
+        setKda(newKda)
+
+    }
+
+    const clearAll = async () => {
         try {
 
-            participantes.map((participante) => {
+            await AsyncStorage.clear();
 
-                if (participante.summonerName.toUpperCase() === nick.toUpperCase()) {
+            navigation.navigate('LoginScreen')
 
-                    setPlayer(participante)
-                    setAssists(participante.assists)
-                    setDeaths(participante.deaths)
-                    setKda(participante.challenges.kda)
-                    setKills(participante.kills)
-                }
-            })
-        } catch {
-            console.error('Erro ao obter dados do player:')
+        } catch (error) {
+            console.error(`Erro ao tentar limpar todos os dados do AsyncStorage`);
         }
+    }
+
+    if (!topChampions) {
+        return <Load />
     }
 
     return (
         <>
             <StatusBar style='light' />
+
             <ImageBackground source={Background} style={styles.background}>
-                <ScrollView style={{ margin: 'auto', width: '100%' }}>
 
-                    <View style={{ width: '100%' }}>
+                <View style={styles.principal}>
 
-                        <ImageBackground source={Faixa} style={styles.principal}>
-                            <View style={styles.playerStatus}>
-                                <LinearGradient
-                                    colors={['#C09D53', '#e9a51174']}
-                                    style={styles.circle}
-                                >
-                                    <Image source={{ uri: image }} style={styles.image} />
-                                    <View style={styles.levelBox}>
-                                        <Text style={styles.level}>{level}</Text>
-                                    </View>
-                                </LinearGradient>
-                                <Text style={styles.title}>{nickName}</Text>
-                            </View>
-                        </ImageBackground>
+                    <ScrollView>
+                        <View style={styles.playerStatus}>
+                            <LinearGradient
+                                colors={['#C09D53', '#e9a51174']}
+                                style={styles.circle}
+                            >
+                                <Image source={{ uri: image }} style={styles.image} />
+                                <View style={styles.levelBox}>
+                                    <Text style={styles.level}>{level}</Text>
+                                </View>
+                            </LinearGradient>
+                            <Text style={styles.title}>{nickName}</Text>
+                        </View>
+
                         <View style={styles.box}>
 
                             <Text style={styles.subtitle}>Principais Campeões</Text>
 
                             <FlatList
                                 data={topChampions}
-                                keyExtractor={(item) => item.puuid.toString()}
+                                keyExtractor={(item) => item.championId.toString()}
                                 renderItem={({ item }) => (
                                     <CardMaestria campeao={item} />
                                 )}
@@ -213,7 +260,11 @@ export const Profile = () => {
 
                         <View style={styles.info}>
 
-                            <Text style={styles.title}>
+                            <Text
+                                style={
+                                    [styles.title, { fontFamily: 'LolFont-Medium' }
+                                    ]
+                                }>
                                 Última partida
                             </Text>
 
@@ -237,11 +288,19 @@ export const Profile = () => {
                                 Status: {kills} / {deaths} / {assists}
                             </Text>
                             <Text style={styles.resultText}>
-                                Kda: {(kda).toFixed(2)}
+                                Kda: {kda.toFixed(2)}
                             </Text>
                         </View>
-                    </View>
-                </ScrollView >
+
+                        <TouchableOpacity
+                            style={styles.logout}
+                            onPress={clearAll}
+                        >
+                            <ButtonLogout />
+                        </TouchableOpacity>
+
+                    </ScrollView >
+                </View>
             </ImageBackground>
         </>
     )

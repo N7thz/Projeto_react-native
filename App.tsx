@@ -17,6 +17,8 @@ export default function App() {
 
     'LolFont-Bold': require('./src/assets/fonts/BeaufortforLOL-HeavyItalic.otf' ),
 
+    'LolFont-Bold-Button': require('./src/assets/fonts/BeaufortforLOL-Bold.otf'),
+
     'LolFont-Text': require('./src/assets/fonts/Spiegel-Regular.otf'),
     
   });

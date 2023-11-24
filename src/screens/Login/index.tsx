@@ -15,30 +15,31 @@ import background from '../../assets/imgs/background-inicio.png'
 import { RootStack } from '../../routes/Stack.routes';
 
 import { AntDesign } from '@expo/vector-icons';
-
 import { ApplicationContext } from '../../context/context';
+
 
 export const LoginScreen = () => {
 
-  const { nick, setNick } = useContext(ApplicationContext)
+  const navigation = useNavigation<NativeStackNavigationProp<RootStack>>()
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigation = useNavigation<NativeStackNavigationProp<RootStack>>()
+  const { setNick } = useContext(ApplicationContext)
+
+  const storeData = async (value: string) => {
+
+    try {
+
+      await AsyncStorage.setItem('NickName', value);
+
+    } catch (e) {
+
+      console.error('não foi possivel salvar as informações');
+    }
+  }
 
   const Logar = async () => {
-
-    const storeData = async (value: string) => {
-      try {
-
-        await AsyncStorage.setItem('logado', value);
-
-      } catch (e) {
-
-        console.error('não foi possivel salvar as informações');
-      }
-    }
 
     const response = await getUser(email, password)
 
@@ -46,25 +47,20 @@ export const LoginScreen = () => {
 
       const dados: [any] = response.data
 
-      console.log(dados);
-
-
       dados.map((item) => {
 
+        storeData(item.dados.name)
         setNick(item.dados.name)
       })
-
-      storeData('true')
-
-      alert('Login efetuado com sucesso')
 
       navigation.navigate('TabNavigation')
     } else {
 
       alert('Erro ao efetuar o login')
-      setEmail('')
-      setPassword('')
     }
+
+    setEmail('')
+    setPassword('')
   }
 
   return (

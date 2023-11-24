@@ -35,9 +35,8 @@ const Home = () => {
       }
     };
 
-    // Chame a função fetchData quando o componente montar
     fetchData();
-  }, []); // O array de dependências vazio garante que useEffect é chamado apenas uma vez
+  }, []); 
 
   
   const championArray = Object.values(championData);
